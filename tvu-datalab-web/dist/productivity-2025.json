@@ -478,5 +478,99 @@
     "new_route": "/productivity-2025.html",
     "deployment_requirement": "기존 사이트 소스 또는 데이터 업로드·배포 기능 접근 필요"
   },
-  "rounding_note": "보고서에 표기된 배점 합계는 1000.04점으로, 소수 둘째 자리 반올림 차이가 있다. 배점은 원문 표기 그대로 제공한다."
+  "rounding_note": "보고서에 표기된 배점 합계는 1000.04점으로, 소수 둘째 자리 반올림 차이가 있다. 배점은 원문 표기 그대로 제공한다.",
+  "recycling_chart": {
+    "indicator": "생활계폐기물 재활용률",
+    "aggregation": "광역별 관할 기초지자체 측정값의 평균",
+    "unit": "%",
+    "reported_national_average": 53.49,
+    "all_regions": [
+      {
+        "region": "서울",
+        "value": 60.97
+      },
+      {
+        "region": "부산",
+        "value": 80.72
+      },
+      {
+        "region": "대구",
+        "value": 54.77
+      },
+      {
+        "region": "인천",
+        "value": 59.79
+      },
+      {
+        "region": "광주",
+        "value": 91.04
+      },
+      {
+        "region": "대전",
+        "value": 65.88
+      },
+      {
+        "region": "울산",
+        "value": 45.98
+      },
+      {
+        "region": "경기",
+        "value": 59.41
+      },
+      {
+        "region": "강원",
+        "value": 43.91
+      },
+      {
+        "region": "충북",
+        "value": 35.1
+      },
+      {
+        "region": "충남",
+        "value": 43.07
+      },
+      {
+        "region": "전북",
+        "value": 53.26
+      },
+      {
+        "region": "전남",
+        "value": 41.31
+      },
+      {
+        "region": "경북",
+        "value": 43.32
+      },
+      {
+        "region": "경남",
+        "value": 49.77
+      }
+    ],
+    "top5": [
+      {
+        "region": "광주",
+        "value": 91.04
+      },
+      {
+        "region": "부산",
+        "value": 80.72
+      },
+      {
+        "region": "대전",
+        "value": 65.88
+      },
+      {
+        "region": "서울",
+        "value": 60.97
+      },
+      {
+        "region": "인천",
+        "value": 59.79
+      }
+    ],
+    "source_pdf_page": 42,
+    "source_printed_page": 75,
+    "figure": "Ⅱ-46",
+    "note": "전체 생산성지수 점수가 아닌 환경 세부지표"
+  }
 }
