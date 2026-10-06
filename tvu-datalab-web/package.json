@@ -1,0 +1,1 @@
+{"name":"tvu-datalab-standalone","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node server.mjs","build":"vite build"},"engines":{"node":">=22"},"dependencies":{"react":"19.2.6","react-dom":"19.2.6","zod":"3.25.76"},"devDependencies":{"vite":"8.0.13","@vitejs/plugin-react":"6.0.2","typescript":"5.9.3"}}
