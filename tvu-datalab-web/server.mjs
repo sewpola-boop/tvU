@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {ConfigSchema,defaults,normalizeConfig} from './model.bundle.mjs';
 import {login,session,changePassword,cookie} from './auth.bundle.mjs';
 import {calculate} from './table.bundle.mjs';
-const root=path.dirname(fileURLToPath(import.meta.url)),data=path.resolve(process.env.DATA_DIR||path.join(root,'data')),port=Number(process.env.PORT||3000),origin=process.env.PUBLIC_ORIGIN||(process.env.RAILWAY_PUBLIC_DOMAIN?'https://'+process.env.RAILWAY_PUBLIC_DOMAIN:undefined),previewPassword=process.env.PREVIEW_PASSWORD||process.env.ADMIN_PASSWORD;
+const root=path.dirname(fileURLToPath(import.meta.url)),data=path.resolve(process.env.DATA_DIR||path.join(root,'data')),port=Number(process.env.PORT||3000),origin=process.env.PUBLIC_ORIGIN||(process.env.RAILWAY_PUBLIC_DOMAIN?'https://'+process.env.RAILWAY_PUBLIC_DOMAIN:undefined),previewPassword=process.env.PREVIEW_PASSWORD;
 if(!origin||(!origin.startsWith('https://')&&!/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)))throw Error('PUBLIC_ORIGIN 또는 Railway 도메인 설정이 필요합니다.');
 for(const folder of ['raw','history','auth','logos'])await fs.mkdir(path.join(data,folder),{recursive:true});
 const hash=v=>crypto.createHash('sha256').update(v).digest('hex'),digest=v=>crypto.createHash('sha256').update(v).digest();
