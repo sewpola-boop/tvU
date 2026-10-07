@@ -1,0 +1,576 @@
+{
+  "dataset_id": "local-government-productivity-2025",
+  "title": "2025년 지방자치단체 생산성지수",
+  "publication_year": 2025,
+  "source": {
+    "title": "2025년 지방자치단체 생산성지수 측정 최종보고서",
+    "publisher": "한국생산성본부",
+    "submitted_to": "행정안전부",
+    "date": "2025-12",
+    "pdf_pages": 46
+  },
+  "status": "source_ready",
+  "coverage": {
+    "eligible_local_governments": 226,
+    "index_applicants": 144,
+    "index_awardees": 16,
+    "case_applicants": 147,
+    "submitted_cases": 399,
+    "awarded_cases": 12,
+    "domains": 2,
+    "fields": 7,
+    "indicators": 18,
+    "sub_indicators": 26
+  },
+  "limitations": [
+    "첨부 PDF에 별첨1 전체 점수표 및 별첨4 개별 측정보고서가 포함되어 있지 않아 전체 종합순위와 지자체별 점수는 제공하지 않는다.",
+    "2025는 보고서 발간·평가 연도다. 모든 원자료의 기준연도가 2025년이라는 의미는 아니다.",
+    "수상 등급과 기량향상 부문을 하나의 순위로 변환하지 않는다.",
+    "리얼미터 광역단체장 평가 및 기존 시연 종합점수와 합산하지 않는다.",
+    "광역별 비교는 관할 기초지자체 측정값을 집계한 값으로 광역정부 자체 성과평가가 아니다.",
+    "본문 응모표의 156개와 측정부문의 144개는 범위가 다르거나 설명 확인이 필요한 값이므로 혼용하지 않는다."
+  ],
+  "indicators": [
+    {
+      "id": 1,
+      "field": "인구관리 역량",
+      "label": "인구 증가율",
+      "max_points": 76.83,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 2,
+      "field": "인구관리 역량",
+      "label": "합계출산 증가율",
+      "max_points": 46.74,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 3,
+      "field": "지역경제 역량",
+      "label": "청년고용 증가율",
+      "max_points": 81.86,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 4,
+      "field": "지역경제 역량",
+      "label": "1인당 GRDP 증가율",
+      "max_points": 98.41,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 5,
+      "field": "지역경제 역량",
+      "label": "경제활동참가 증가율",
+      "max_points": 108.97,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 6,
+      "field": "행정재정 역량",
+      "label": "지자체 적극행정 종합평가",
+      "max_points": 36.95,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 7,
+      "field": "행정재정 역량",
+      "label": "지자체 청렴도",
+      "max_points": 18.06,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 8,
+      "field": "행정재정 역량",
+      "label": "재정자립도",
+      "max_points": 43.09,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 9,
+      "field": "행정재정 역량",
+      "label": "재정자주도",
+      "max_points": 38.66,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 10,
+      "field": "돌봄·복지",
+      "label": "사회복지시설 수",
+      "max_points": 55.53,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 11,
+      "field": "돌봄·복지",
+      "label": "보육시설 이용 수준",
+      "max_points": 33.24,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 12,
+      "field": "돌봄·복지",
+      "label": "자원봉사 활동율",
+      "max_points": 26.66,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 13,
+      "field": "안전·건강",
+      "label": "지역안전지수",
+      "max_points": 66.13,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 14,
+      "field": "안전·건강",
+      "label": "지역주민 건강",
+      "max_points": 41.34,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 15,
+      "field": "안전·건강",
+      "label": "지역 의료 수준",
+      "max_points": 62.54,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 16,
+      "field": "교육·문화",
+      "label": "문화기반시설 이용수준",
+      "max_points": 83.04,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 17,
+      "field": "교육·문화",
+      "label": "평생교육시설 이용 수준",
+      "max_points": 34.71,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    },
+    {
+      "id": 18,
+      "field": "환경",
+      "label": "지역환경 관리 수준",
+      "max_points": 47.28,
+      "source_pdf_page": 16,
+      "source_printed_page": 23
+    }
+  ],
+  "awards": [
+    {
+      "region": "서울 종로구",
+      "category": "대상",
+      "awarding_authority": "대통령",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "경기 수원시",
+      "category": "최우수",
+      "awarding_authority": "국무총리",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "인천 중구",
+      "category": "최우수",
+      "awarding_authority": "국무총리",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "충남 홍성군",
+      "category": "최우수",
+      "awarding_authority": "국무총리",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "경기 과천시",
+      "category": "우수",
+      "awarding_authority": "행정안전부 장관",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "서울 중구",
+      "category": "우수",
+      "awarding_authority": "행정안전부 장관",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "전남 완도군",
+      "category": "우수",
+      "awarding_authority": "행정안전부 장관",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "경북 구미시",
+      "category": "기량향상우수",
+      "awarding_authority": "행정안전부 장관",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "서울 성동구",
+      "category": "기량향상우수",
+      "awarding_authority": "행정안전부 장관",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "충남 부여군",
+      "category": "기량향상우수",
+      "awarding_authority": "행정안전부 장관",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "경기 화성시",
+      "category": "장려",
+      "awarding_authority": "한국생산성본부 회장",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "인천 연수구",
+      "category": "장려",
+      "awarding_authority": "한국생산성본부 회장",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "전남 영암군",
+      "category": "장려",
+      "awarding_authority": "한국생산성본부 회장",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "경북 경산시",
+      "category": "기량향상장려",
+      "awarding_authority": "한국생산성본부 회장",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "대구 수성구",
+      "category": "기량향상장려",
+      "awarding_authority": "한국생산성본부 회장",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "region": "경남 하동군",
+      "category": "기량향상장려",
+      "awarding_authority": "한국생산성본부 회장",
+      "rank": null,
+      "score": null,
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    }
+  ],
+  "policy_cases": [
+    {
+      "field": "경제",
+      "category": "우수",
+      "region": "전북 군산시",
+      "title": "군산보리로 완성한 6차산업화 성공모델: 창업·가공·축제를 잇는 생산성혁신",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "환경",
+      "category": "우수",
+      "region": "전남 해남군",
+      "title": "폐자원을 자원으로! 해남형 ESG 실천! 폐스티로폼 감용기사업",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "문화",
+      "category": "우수",
+      "region": "충남 당진시",
+      "title": "수다 맛집! 당진 청소년들의 문화 시설 수다벅스",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "복지",
+      "category": "우수",
+      "region": "부산 북구",
+      "title": "사람과 반려견을 잇는 다리로 거듭나다, 발달장애인 도그워커 양성 지원",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "경제",
+      "category": "장려",
+      "region": "서울 동대문구",
+      "title": "한방·봉제·전통시장을 잇다, 동대문 상생경제 생태계",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "환경",
+      "category": "장려",
+      "region": "전남 강진군",
+      "title": "빈집이 들썩인다! 사람이 몰려온다!",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "문화",
+      "category": "장려",
+      "region": "전북 완주군",
+      "title": "다양성과 포용을 향한 새로운길, 완주 무장애 프로젝트",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "복지",
+      "category": "장려",
+      "region": "서울 관악구",
+      "title": "전국 최대! 지역자원 총동원 치매안심도시, 관악구",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "경제",
+      "category": "장려",
+      "region": "경남 통영시",
+      "title": "수산기업 특화도시 조성",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "환경",
+      "category": "장려",
+      "region": "경기 고양시",
+      "title": "지역을 넘어선 고양시 폐목재 자원화로 순환경제 실현",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "문화",
+      "category": "장려",
+      "region": "울산 울주군",
+      "title": "내가 만들고 모두가 누리는 울주형 생활문화 사업 <울주동네문화생활>",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    },
+    {
+      "field": "복지",
+      "category": "장려",
+      "region": "부산 수영구",
+      "title": "같이 걷는 동행, 천천히 가도 괜찮아! 청년 경계선 지능인 자립을 위한 차차스테이션",
+      "title_status": "표 제목의 줄바꿈·문장부호 일부 정리",
+      "source_pdf_page": 16,
+      "source_printed_page": 24
+    }
+  ],
+  "type_comparisons": [
+    {
+      "indicator": "인구 증가율",
+      "unit": "%",
+      "reported_national_average": -0.03,
+      "city": 0.14,
+      "autonomous_district": -0.22,
+      "county": -0.78,
+      "source_pdf_page": 17,
+      "source_printed_page": 26
+    },
+    {
+      "indicator": "합계출산 증가율",
+      "unit": "%",
+      "reported_national_average": 4.42,
+      "city": 2.64,
+      "autonomous_district": 4.98,
+      "county": 5.6,
+      "source_pdf_page": 18,
+      "source_printed_page": 28
+    },
+    {
+      "indicator": "청년고용 증가율",
+      "unit": "%",
+      "reported_national_average": 1.38,
+      "city": -0.74,
+      "autonomous_district": 5.25,
+      "county": -0.91,
+      "source_pdf_page": 19,
+      "source_printed_page": 30
+    }
+  ],
+  "integration": {
+    "suggested_entry": "2025 생산성지수",
+    "map": "수상 지자체에 수상 부문 배지와 정책사례 표시",
+    "detail": "수상 이력·우수사례·출처 페이지 제공; 종합점수는 자료 미확보 표시",
+    "ask_supported_examples": [
+      "2025 생산성지수 대상 지자체는?",
+      "생산성지수 기량향상우수 지자체는?",
+      "환경 분야 우수사례 보여줘",
+      "시·군·구 인구 증가율 비교해줘"
+    ],
+    "ask_unsupported": "144개 지자체 전체 종합순위 또는 미확보 개별 점수 질문에는 자료 미확보로 응답",
+    "new_route": "/productivity-2025.html",
+    "deployment_requirement": "기존 사이트 소스 또는 데이터 업로드·배포 기능 접근 필요"
+  },
+  "rounding_note": "보고서에 표기된 배점 합계는 1000.04점으로, 소수 둘째 자리 반올림 차이가 있다. 배점은 원문 표기 그대로 제공한다.",
+  "recycling_chart": {
+    "indicator": "생활계폐기물 재활용률",
+    "aggregation": "광역별 관할 기초지자체 측정값의 평균",
+    "unit": "%",
+    "reported_national_average": 53.49,
+    "all_regions": [
+      {
+        "region": "서울",
+        "value": 60.97
+      },
+      {
+        "region": "부산",
+        "value": 80.72
+      },
+      {
+        "region": "대구",
+        "value": 54.77
+      },
+      {
+        "region": "인천",
+        "value": 59.79
+      },
+      {
+        "region": "광주",
+        "value": 91.04
+      },
+      {
+        "region": "대전",
+        "value": 65.88
+      },
+      {
+        "region": "울산",
+        "value": 45.98
+      },
+      {
+        "region": "경기",
+        "value": 59.41
+      },
+      {
+        "region": "강원",
+        "value": 43.91
+      },
+      {
+        "region": "충북",
+        "value": 35.1
+      },
+      {
+        "region": "충남",
+        "value": 43.07
+      },
+      {
+        "region": "전북",
+        "value": 53.26
+      },
+      {
+        "region": "전남",
+        "value": 41.31
+      },
+      {
+        "region": "경북",
+        "value": 43.32
+      },
+      {
+        "region": "경남",
+        "value": 49.77
+      }
+    ],
+    "top5": [
+      {
+        "region": "광주",
+        "value": 91.04
+      },
+      {
+        "region": "부산",
+        "value": 80.72
+      },
+      {
+        "region": "대전",
+        "value": 65.88
+      },
+      {
+        "region": "서울",
+        "value": 60.97
+      },
+      {
+        "region": "인천",
+        "value": 59.79
+      }
+    ],
+    "source_pdf_page": 42,
+    "source_printed_page": 75,
+    "figure": "Ⅱ-46",
+    "note": "전체 생산성지수 점수가 아닌 환경 세부지표"
+  }
+}

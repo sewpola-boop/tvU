@@ -1,13 +1,13 @@
-# 지방정부 tvU 데이터랩 — Railway 웹 업로드용
+# 지방정부 tvU 데이터랩 — Railway
 
-1. GitHub에서 tvu-datalab 비공개 저장소를 만듭니다. Add README를 켜면 업로드 메뉴를 쉽게 찾을 수 있습니다.
-2. 이 ZIP을 압축 해제한 뒤 내용 전체를 Add file → Upload files로 올리고 Commit changes를 누릅니다. ZIP 자체를 업로드하지 마세요.
-3. 저장소 주소를 공유해 Railway 연결을 진행합니다. Railway GitHub App에는 이 저장소 접근 권한을 허용합니다.
+ChatGPT Sites의 최신 화면과 관리자 기능을 Node/Vite 서버로 옮긴 버전입니다. Docker가 화면과 서버 번들을 모두 빌드합니다.
 
-Railway 설정: Dockerfile 자동 빌드, 영구 볼륨 /data, ADMIN_PASSWORD 16자 이상, ADMIN_USER 기본값 admin. Generate Domain 후 Railway 도메인을 자동 인식합니다. 자체 도메인을 쓰면 PUBLIC_ORIGIN에 https://도메인을 설정합니다.
+- 관리자 URL: `/sysop` (`/admin`도 호환). 초기 아이디 `admin`, 초기 비밀번호 `1111`. 로그인 후 비밀번호 변경 메뉴를 사용합니다.
+- 비밀번호는 서버 데이터 경로에 해시로 저장되며 비밀번호 변경 시 기존 세션은 만료됩니다. 데이터와 계정 유지를 위해 Railway 영구 볼륨을 `/data`에 연결합니다.
+- Railway 생성 도메인은 자동 인식합니다. 자체 도메인은 `PUBLIC_ORIGIN=https://도메인`을 설정합니다.
+- 기존 `ADMIN_PASSWORD` 또는 `PREVIEW_PASSWORD` 환경변수가 있으면 전체 사이트의 기존 Basic 인증도 유지됩니다. 관리자 편집 로그인은 별도로 `/sysop`에서 합니다.
+- 구독 플랜, 질문 제목/정렬, 홈페이지, 표/수식, 단체장/정당, 지도 색상/효과를 편집할 수 있습니다. 초기 구독가격은 무료 0원, Plus 월 300,000원/연 3,000,000원, Pro 월 600,000원/연 7,000,000원입니다. 결제와 유료 권한 부여는 미연결입니다.
+- 전국 단체장 자료는 수집/재직 확인 상태를 구분합니다. 지도는 2023년 경계입니다.
+- 서버의 기존 `draft.json`과 `published.json`은 유지하고 누락된 설정만 기본값으로 보완합니다. ChatGPT Sites에서 저장한 편집본은 관리자 설정 JSON 내보내기/불러오기로 이전합니다.
 
-초기 배포는 전체 사이트에 비밀번호가 있는 검토용입니다. /admin에서 편집 가능합니다. 비밀번호는 Railway Variables에 입력하고 채팅에는 보내지 마세요.
-
-2026 데이터 페이지, 애니메이션 막대그래프, 워스트 시연순위, 흰색 그라데이션과 중앙 프리미엄 버튼 포함. 결제 및 정부 API 자동 수집은 구현되지 않았습니다. 기본 시연 데이터로 시작하며 기존 사이트 관리자에서 저장한 데이터는 구성 JSON 내보내기/가져오기로 옮겨야 합니다. 업로드 원본 파일은 별도 이전합니다.
-
-빌드된 dist는 즉시 배포용입니다. UI 소스는 src, 모델은 lib에 포함합니다. 소스 수정 후 npm install, npm run build로 dist를 갱신하고 함께 올립니다. 모델 수정 시 서버용 model.bundle.mjs도 재번들링해야 합니다.
+개발: `npm install`, `npm run build`, `PUBLIC_ORIGIN=http://127.0.0.1:3000 DATA_DIR=./data npm start`. 서버 데이터 경로는 GitHub에 올리지 않습니다.

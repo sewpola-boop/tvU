@@ -1,0 +1,182 @@
+{
+  "content": {
+    "title": "대한민국, 데이터로 읽다",
+    "subtitle": "지도를 누르면 지역이 보이고, 지역을 누르면 정책과 사람이 보입니다.",
+    "notice": "시연용 종합순위 · 점수는 임의로 구성했습니다. 실제 평가가 아닙니다.",
+    "rankingTitle": "지자체장 종합순위",
+    "footer": "지방자치연구소(주) · 월간 지방정부 · tvU"
+  },
+  "layout": {
+    "rankSide": "right",
+    "showRanking": true,
+    "showStories": true,
+    "showData": true,
+    "compact": false,
+    "accent": "lavender"
+  },
+  "leaders": [
+    {
+      "id": "choi",
+      "name": "최상기",
+      "role": "인제군수",
+      "regionId": "51810",
+      "photo": "/assets/choi-sang-ki.jpg",
+      "career": "인제군 부군수\n후보 등록 당시 인제군수",
+      "source": "https://korean-eyes.com/local/100163065",
+      "score": 92.4,
+      "change": 2
+    },
+    {
+      "id": "oh",
+      "name": "오세훈",
+      "role": "서울특별시장",
+      "regionId": "11",
+      "photo": "/assets/oh.jpg",
+      "career": "경력 원자료 입력 대기",
+      "source": "https://korean-eyes.com/local/100162984",
+      "score": 89.8,
+      "change": 1
+    },
+    {
+      "id": "chumi",
+      "name": "추미애",
+      "role": "경기도지사",
+      "regionId": "41",
+      "photo": "/assets/chumi.jpg",
+      "career": "경력 원자료 입력 대기",
+      "source": "https://korean-eyes.com/local/100163148",
+      "score": 87.6,
+      "change": -1
+    },
+    {
+      "id": "jeon",
+      "name": "전재수",
+      "role": "부산광역시장",
+      "regionId": "26",
+      "photo": "/assets/jeon.jpg",
+      "career": "경력 원자료 입력 대기",
+      "source": "https://korean-eyes.com/local/100163192",
+      "score": 85.2,
+      "change": 3
+    },
+    {
+      "id": "park",
+      "name": "박찬대",
+      "role": "인천광역시장",
+      "regionId": "28",
+      "photo": "/assets/park.jpg",
+      "career": "경력 원자료 입력 대기",
+      "source": "https://korean-eyes.com/local/100163128",
+      "score": 83.7,
+      "change": -2
+    },
+    {
+      "id": "choo",
+      "name": "추경호",
+      "role": "대구광역시장",
+      "regionId": "27",
+      "photo": "/assets/choo.jpg",
+      "career": "경력 원자료 입력 대기",
+      "source": "https://korean-eyes.com/local/100163199",
+      "score": 81.9,
+      "change": 0
+    }
+  ],
+  "records": [
+    {
+      "id": "inje-0",
+      "regionId": "51810",
+      "metric": 0,
+      "value": 8.62,
+      "year": 2026,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-1",
+      "regionId": "51810",
+      "metric": 1,
+      "value": 66.75,
+      "year": 2026,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-2",
+      "regionId": "51810",
+      "metric": 2,
+      "value": -4.71,
+      "year": 2026,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-3",
+      "regionId": "51810",
+      "metric": 3,
+      "value": 0,
+      "year": 2024,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-4",
+      "regionId": "51810",
+      "metric": 4,
+      "value": 3,
+      "year": 2025,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-5",
+      "regionId": "51810",
+      "metric": 5,
+      "value": 2,
+      "year": 2025,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    }
+  ],
+  "sources": [
+    {
+      "id": "kosis",
+      "name": "KOSIS 공유서비스",
+      "url": "https://kosis.kr/openapi/",
+      "keyName": "KOSIS_API_KEY",
+      "cycle": "원자료 공표 주기",
+      "mapping": "연동 설계 대기: 지역코드, 지표, 기간, 수치 필드를 매핑합니다."
+    },
+    {
+      "id": "lofin",
+      "name": "지방재정365",
+      "url": "https://www.lofin365.go.kr/",
+      "keyName": "LOFIN_API_KEY",
+      "cycle": "연간",
+      "mapping": "데이터셋별 API 주소·회계 기준·호출 한도 확인 필요"
+    }
+  ],
+  "stories": [
+    {
+      "id": "tour",
+      "title": "관광시설, 투자 이후를 묻다",
+      "body": "조성비·운영비·방문객과 지역 소비를 함께 보는 취재 기획입니다."
+    },
+    {
+      "id": "budget",
+      "title": "못 쓴 예산의 이유는 무엇인가",
+      "body": "불용과 이월을 구분하고 주요 사업 지연 원인을 취재합니다."
+    },
+    {
+      "id": "youth",
+      "title": "청년이 떠나는 곳, 머무는 곳",
+      "body": "순이동의 변화와 주거·일자리 정책을 대조합니다."
+    }
+  ]
+}
