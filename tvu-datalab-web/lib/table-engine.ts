@@ -1,4 +1,5 @@
-export type Sheet={id:string;title:string;note:string;visible:boolean;view:'table'|'striped'|'ranking'|'comparison'|'cards'|'bar'|'vertical'|'paired'|'line'|'mixed'|'pie'|'stacked'|'waterfall'|'histogram'|'bubble'|'scatter'|'population'|'radar3'|'radar4'|'radar5'|'radar6'|'radar7'|'radar8';valueColumn:number;limit:number;columns:{name:string;unit:string;formula:string}[];rows:string[][]};
+import type {DataMetadata} from './data-connections';
+export type Sheet={id:string;title:string;note:string;visible:boolean;view:'table'|'striped'|'ranking'|'comparison'|'cards'|'bar'|'vertical'|'paired'|'line'|'mixed'|'pie'|'stacked'|'waterfall'|'histogram'|'bubble'|'scatter'|'population'|'radar3'|'radar4'|'radar5'|'radar6'|'radar7'|'radar8';valueColumn:number;limit:number;columns:{name:string;unit:string;formula:string}[];rows:string[][];metadata?:DataMetadata};
 export const columnLetter=(i:number)=>String.fromCharCode(65+i);
 export function calculate(s:Sheet){
  const cache=new Map<string,string|number>(),active=new Set<string>();

@@ -1,11 +1,13 @@
+import {connectedRecords} from './data-connections';
+import {monthlyIdentity} from './monthly-identity';
 import {calculate} from './table-engine';
 import type {Config} from './model';
 export function compositeRanking(config:Config,scope:'basic'|'metro'){
- const rules=config.ranking.rules.filter(r=>r.enabled&&r.scope===scope&&r.weight>0);
+ const records=connectedRecords(config);const rules=config.ranking.rules.filter(r=>r.enabled&&r.scope===scope&&r.weight>0);
  const leaders=config.leaders.filter(l=>l.level===scope&&l.name&&l.name!=='자료 확인 중');
  const maps=rules.map(rule=>{const values=new Map<string,number>();const duplicate=new Set<string>();
-  if(rule.kind==='record'){for(const l of leaders){const row=config.records.filter(r=>r.regionId===l.regionId&&r.metric===rule.metric&&r.year===rule.year&&r.status!=='demo'&&(config.ranking.includeReference||r.status==='verified')).sort((a,b)=>b.year-a.year)[0];if(row)values.set(l.id,row.value)}}
-  else{const sheet=config.datasets.find(s=>s.id===rule.datasetId);if(sheet&&!sheet.id.startsWith('demo-')&&!['realmeter-education','recycling'].includes(sheet.id)){const cells=calculate(sheet);for(const row of cells){const key=String(row[rule.keyColumn]?.value||'').trim(),v=row[rule.valueColumn];if(!key||!v||v.error||typeof v.value!=='number')continue;const found=leaders.filter(l=>[l.regionId,l.dataKey,l.name].filter(Boolean).includes(key));if(found.length!==1)continue;const l=found[0];if(sheet.id==='realmeter-general'&&String(row[1]?.value)!==l.name)continue;if(values.has(l.id))duplicate.add(l.id);else values.set(l.id,v.value)}for(const id of duplicate)values.delete(id)}}
+  if(rule.kind==='record'){for(const l of leaders){const row=records.filter(r=>r.regionId===l.regionId&&r.metric===rule.metric&&r.year===rule.year&&r.status!=='demo'&&(config.ranking.includeReference||r.status==='verified')).sort((a,b)=>b.year-a.year)[0];if(row)values.set(l.id,row.value)}}
+  else{const sheet=config.datasets.find(s=>s.id===rule.datasetId);if(sheet&&!sheet.id.startsWith('demo-')&&!['realmeter-education','recycling'].includes(sheet.id)){const cells=calculate(sheet);for(const row of cells){const key=String(row[rule.keyColumn]?.value||'').trim(),v=row[rule.valueColumn];if(!key||!v||v.error||typeof v.value!=='number')continue;const identity=monthlyIdentity(sheet.id,[key,sheet.id.startsWith('realmeter-')?String(row[1]?.value||''):''],leaders).leader;const found=leaders.filter(l=>[l.regionId,l.dataKey,l.name].filter(Boolean).includes(key)||l.id===identity?.id);if(found.length!==1)continue;const l=found[0];if(sheet.id==='realmeter-general'&&String(row[1]?.value)!==l.name)continue;if(values.has(l.id))duplicate.add(l.id);else values.set(l.id,v.value)}for(const id of duplicate)values.delete(id)}}
   return {rule,values};
  });
  const complete=leaders.filter(l=>rules.length>0&&maps.every(m=>m.values.has(l.id)));
