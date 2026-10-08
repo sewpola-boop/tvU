@@ -4051,6 +4051,98 @@ var NEVER = INVALID;
 // lib/map-style.ts
 var defaultMapColors = { "\uAD6D\uBBFC\uC758\uD798": "#e53935", "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9": "#1976df", "\uAC1C\uD601\uC2E0\uB2F9": "#f58220", "\uC870\uAD6D\uD601\uC2E0\uB2F9": "#153d80", "\uBB34\uC18C\uC18D": "#ffffff", "\uBBF8\uD655\uC778": "#ddd5ee" };
 
+// lib/incheon-slots.json
+var incheon_slots_default = [
+  {
+    id: "leader-IC-JEMULPO",
+    name: "",
+    party: "\uBBF8\uD655\uC778",
+    role: "\uC81C\uBB3C\uD3EC\uAD6C\uCCAD\uC7A5",
+    regionId: "IC-JEMULPO",
+    photo: "",
+    career: "",
+    source: "",
+    level: "basic",
+    dataKey: "\uC778\uCC9C \uC81C\uBB3C\uD3EC\uAD6C",
+    asOf: "2026-07",
+    historicalStatus: "pending",
+    policies: "",
+    pledges: "",
+    policySource: "",
+    pledgeSource: "",
+    photoSource: "",
+    collectedAt: "",
+    score: 0,
+    change: 0
+  },
+  {
+    id: "leader-IC-YEONGJONG",
+    name: "",
+    party: "\uBBF8\uD655\uC778",
+    role: "\uC601\uC885\uAD6C\uCCAD\uC7A5",
+    regionId: "IC-YEONGJONG",
+    photo: "",
+    career: "",
+    source: "",
+    level: "basic",
+    dataKey: "\uC778\uCC9C \uC601\uC885\uAD6C",
+    asOf: "2026-07",
+    historicalStatus: "pending",
+    policies: "",
+    pledges: "",
+    policySource: "",
+    pledgeSource: "",
+    photoSource: "",
+    collectedAt: "",
+    score: 0,
+    change: 0
+  },
+  {
+    id: "leader-IC-GEOMDAN",
+    name: "",
+    party: "\uBBF8\uD655\uC778",
+    role: "\uAC80\uB2E8\uAD6C\uCCAD\uC7A5",
+    regionId: "IC-GEOMDAN",
+    photo: "",
+    career: "",
+    source: "",
+    level: "basic",
+    dataKey: "\uC778\uCC9C \uAC80\uB2E8\uAD6C",
+    asOf: "2026-07",
+    historicalStatus: "pending",
+    policies: "",
+    pledges: "",
+    policySource: "",
+    pledgeSource: "",
+    photoSource: "",
+    collectedAt: "",
+    score: 0,
+    change: 0
+  },
+  {
+    id: "leader-IC-SEOHAE",
+    name: "",
+    party: "\uBBF8\uD655\uC778",
+    role: "\uC11C\uD574\uAD6C\uCCAD\uC7A5",
+    regionId: "IC-SEOHAE",
+    photo: "",
+    career: "",
+    source: "",
+    level: "basic",
+    dataKey: "\uC778\uCC9C \uC11C\uD574\uAD6C",
+    asOf: "2026-07",
+    historicalStatus: "pending",
+    policies: "",
+    pledges: "",
+    policySource: "",
+    pledgeSource: "",
+    photoSource: "",
+    collectedAt: "",
+    score: 0,
+    change: 0
+  }
+];
+
 // lib/collected-leaders.json
 var collected_leaders_default = [
   {
@@ -8293,7 +8385,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uAD6D\uBBFC\uC758\uD798",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-48",
@@ -8314,7 +8408,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uAD6D\uBBFC\uC758\uD798",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-11",
@@ -8335,7 +8431,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uAD6D\uBBFC\uC758\uD798",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-26",
@@ -8356,7 +8454,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-43",
@@ -8377,7 +8477,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-36",
@@ -8398,7 +8500,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-51",
@@ -8419,7 +8523,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-30",
@@ -8440,7 +8546,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-31",
@@ -8461,7 +8569,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-50",
@@ -8482,28 +8592,32 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-unmapped-\uC804\uB0A8\uAD11\uC8FC",
     name: "\uBBFC\uD615\uBC30",
-    role: "\uC804\uB0A8\uAD11\uC8FC\uC2DC\uC7A5",
-    regionId: "unmapped-\uC804\uB0A8\uAD11\uC8FC",
+    role: "\uC804\uB0A8\uAD11\uC8FC\uD1B5\uD569\uD2B9\uBCC4\uC2DC\uC7A5",
+    regionId: "JN-GJ",
     photo: "",
-    career: "",
-    source: "https://www.realmeter.net/",
+    career: "\uC81C21\xB722\uB300 \uAD6D\uD68C\uC758\uC6D0(\uAD11\uC8FC \uAD11\uC0B0\uAD6C\uC744)\n\uB300\uD1B5\uB839\uBE44\uC11C\uC2E4 \uC790\uCE58\uBC1C\uC804\uBE44\uC11C\uAD00\xB7\uC0AC\uD68C\uC815\uCC45\uBE44\uC11C\uAD00\n\uBBFC\uC120 5\xB76\uAE30 \uAD11\uC8FC \uAD11\uC0B0\uAD6C\uCCAD\uC7A5",
+    source: "https://www.jeonnam-gwangju.go.kr/mayor/contentsView.do?pageId=mayor6",
     level: "metro",
-    dataKey: "\uC804\uB0A8\uAD11\uC8FC",
+    dataKey: "\uC804\uB0A8\uAD11\uC8FC\uD1B5\uD569\uD2B9\uBCC4\uC2DC",
     asOf: "2026-07",
-    historicalStatus: "pending",
+    historicalStatus: "confirmed",
     policies: "",
     pledges: "",
     policySource: "",
     pledgeSource: "",
     photoSource: "",
-    collectedAt: "2026-10-07",
+    collectedAt: "2026-10-08",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-44",
@@ -8524,7 +8638,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-27",
@@ -8545,7 +8661,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uAD6D\uBBFC\uC758\uD798",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-45",
@@ -8566,7 +8684,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-41",
@@ -8587,7 +8707,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     id: "metro-28",
@@ -8608,7 +8730,9 @@ var collected_leaders_default = [
     photoSource: "",
     collectedAt: "2026-10-07",
     score: 0,
-    change: 0
+    change: 0,
+    party: "\uB354\uBD88\uC5B4\uBBFC\uC8FC\uB2F9",
+    partySource: "https://www.wikitree.co.kr/articles/1139701"
   }
 ];
 
@@ -9768,6 +9892,9 @@ var ConfigSchema = external_exports.object({
   subscription: external_exports.object({ title: text(150), description: text(500), note: text(500), plans: external_exports.array(external_exports.object({ id: text(80), name: text(80), subtitle: text(300), monthly: external_exports.number().int().min(0).max(1e8), annual: external_exports.number().int().min(0).max(1e8), featured: external_exports.boolean(), badge: text(80), features: external_exports.array(text(300)).max(20), button: text(100) })).min(1).max(10) }).default(subscriptionDefaults),
   chat: external_exports.object({ welcome: text(1e3).default("\uC548\uB155\uD558\uC138\uC694. tvU \uB370\uC774\uD130\uB7A9\uC785\uB2C8\uB2E4.\n\uAD81\uAE08\uD55C \uC9C0\uC5ED\uC774\uB098 \uC9C0\uD45C\uB97C \uC54C\uB824\uC8FC\uC138\uC694. \uC800\uC7A5\uB41C \uACF5\uAC1C \uC790\uB8CC\uC5D0\uC11C \uC218\uCE58\uB97C \uCC3E\uC544 \uBE44\uAD50\uD574 \uB4DC\uB9BD\uB2C8\uB2E4."), intro: text(500).default("\uC9C0\uC5ED\uC744 \uBE44\uAD50\uD558\uACE0, \uC800\uC7A5\uB41C \uC218\uCE58\uC640 \uADF8\uB798\uD504\uB97C \uD655\uC778\uD558\uC138\uC694."), placeholder: text(300).default("\uC9C0\uC5ED\xB7\uC9C0\uD45C\uB97C \uBB3C\uC5B4\uBCF4\uC138\uC694. \uC774\uC804 \uC9C8\uBB38\uC5D0 \uC774\uC5B4\uC11C \uB300\uD654\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."), suggestions: external_exports.array(text(100)).max(8).default(["\uB2E8\uCCB4\uC7A5 \uC9C1\uBB34\uD3C9\uAC00 \uC0C1\uC704 5\uBA85", "\uC11C\uC6B8\uACFC \uBD80\uC0B0 \uBE44\uAD50\uD574\uC918", "\uADF8\uB7FC \uD558\uC704 3\uACF3\uC740?"]), width: external_exports.number().int().min(320).max(1400).default(720), height: external_exports.number().int().min(440).max(1600).default(1100), resizable: external_exports.boolean().default(true), blur: external_exports.number().min(0).max(20).default(10), suggestionBackground: external_exports.string().regex(/^#[0-9a-fA-F]{6}$/).default("#000000"), suggestionText: external_exports.string().regex(/^#[0-9a-fA-F]{6}$/).default("#ffffff") }).default({}),
   mapStyle: external_exports.object({ partyColors: external_exports.record(external_exports.string().regex(/^#[0-9a-fA-F]{6}$/)).default(defaultMapColors), partyFill: external_exports.boolean().default(true), neighborBlur: external_exports.number().min(0).max(3).default(0.7) }).default({}),
+  incheonRevision: external_exports.number().int().min(0).max(100).default(0),
+  partyRevision: external_exports.number().int().min(0).max(100).default(0),
+  regionRevision: external_exports.number().int().min(0).max(100).default(0),
   catalogVersion: external_exports.number().int().min(0).max(100).default(0),
   ranking: external_exports.object({ note: text(500).optional(), themeTitles: external_exports.record(text(150)).optional(), baselineMonth: text(7).optional(), previousRanks: external_exports.record(external_exports.number().int().min(1).max(1e4)).optional(), includeReference: external_exports.boolean().default(true), rules: external_exports.array(external_exports.object({ id: text(100), title: text(150), enabled: external_exports.boolean(), kind: external_exports.enum(["dataset", "record"]), scope: external_exports.enum(["basic", "metro"]), datasetId: text(100), keyColumn: external_exports.number().int().min(0).max(25), valueColumn: external_exports.number().int().min(0).max(25), metric: external_exports.number().int().min(0).max(5), year: external_exports.number().int().min(1900).max(2200), direction: external_exports.enum(["high", "low"]), weight: external_exports.number().finite().min(0).max(100) })).max(100).default([{ id: "rm-general", title: "\uB2E8\uCCB4\uC7A5 \uC9C1\uBB34\uD3C9\uAC00", enabled: true, kind: "dataset", scope: "metro", datasetId: "realmeter-general", keyColumn: 0, valueColumn: 2, metric: 0, year: 2026, direction: "high", weight: 1 }, { id: "rm-life", title: "\uC8FC\uBBFC\uC0DD\uD65C \uB9CC\uC871\uB3C4", enabled: true, kind: "dataset", scope: "metro", datasetId: "realmeter-life", keyColumn: 0, valueColumn: 2, metric: 0, year: 2026, direction: "high", weight: 1 }, { id: "rm-relative", title: "\uC815\uB2F9 \uB300\uBE44 \uC0C1\uB300\uC9C0\uC218", enabled: true, kind: "dataset", scope: "metro", datasetId: "realmeter-relative", keyColumn: 0, valueColumn: 2, metric: 0, year: 2026, direction: "high", weight: 1 }]) }).default({}),
   datasets: external_exports.array(external_exports.object({ id: text(100), title: text(150), note: text(1500), visible: external_exports.boolean(), metadata: external_exports.object({ rawKey: text(150).optional(), rawName: text(200).optional(), recognition: external_exports.enum(["pending", "reviewed"]).optional(), enteredAt: text(50).refine((v) => !v || Number.isFinite(Date.parse(v)), "\uC785\uB825\uC77C\uC2DC\uB97C \uD655\uC778\uD558\uC138\uC694").default(""), summary: text(1500).default(""), sourceId: text(80).default(""), connections: external_exports.object({ search: external_exports.boolean().default(false), watch: external_exports.boolean().default(false), profile: external_exports.boolean().default(false) }).default({}), mapping: external_exports.object({ enabled: external_exports.boolean().default(false), keyColumn: external_exports.number().int().min(0).max(25).default(0), valueColumn: external_exports.number().int().min(0).max(25).default(1), metric: external_exports.number().int().min(0).max(5).default(0), year: external_exports.number().int().min(1900).max(2200).default(2026), status: external_exports.enum(["reference", "verified"]).default("reference") }).default({}) }).optional(), view: external_exports.enum(["table", "striped", "ranking", "comparison", "cards", "bar", "vertical", "paired", "line", "mixed", "pie", "stacked", "waterfall", "histogram", "bubble", "scatter", "population", "radar3", "radar4", "radar5", "radar6", "radar7", "radar8"]), valueColumn: external_exports.number().int().min(0).max(25), limit: external_exports.number().int().min(0).max(500), columns: external_exports.array(external_exports.object({ name: text(100), unit: text(30), formula: text(500) })).min(1).max(26), rows: external_exports.array(external_exports.array(text(500)).max(26)).max(500) })).max(50).default(table_defaults_default),
@@ -9775,11 +9902,14 @@ var ConfigSchema = external_exports.object({
   home: external_exports.object({ hidden: external_exports.array(text(120)).max(100).default([]), blocks: external_exports.record(external_exports.object({ title: text(150).default(""), body: text(2e3).default(""), children: external_exports.array(text(120)).max(20).optional(), access: external_exports.enum(["free", "plus", "pro"]).optional(), locked: external_exports.boolean().optional(), arrangement: external_exports.enum(["stack", "grid"]).optional(), newsIds: external_exports.array(text(80)).max(20).optional(), photos: external_exports.array(external_exports.object({ url: safeURL, caption: text(300) })).max(20).optional(), rankingTheme: text(100).optional(), attachments: external_exports.array(external_exports.object({ datasetId: text(100), children: external_exports.array(text(120)).max(20).optional(), title: text(150).optional(), body: text(2e3).optional(), access: external_exports.enum(["free", "plus", "pro"]).optional(), locked: external_exports.boolean().optional(), collapsed: external_exports.boolean().optional(), highlight: external_exports.boolean().optional(), view: external_exports.enum(["table", "striped", "ranking", "comparison", "cards", "bar", "vertical", "paired", "line", "mixed", "pie", "stacked", "waterfall", "histogram", "bubble", "scatter", "population", "radar3", "radar4", "radar5", "radar6", "radar7", "radar8"]) })).max(20).default([]) })).default({}), settings: external_exports.record(external_exports.object({ collapsed: external_exports.boolean(), highlight: external_exports.boolean() })).default({}), order: external_exports.array(text(120)).max(100).default([]), collapsed: external_exports.boolean().default(false), animate: external_exports.boolean().default(true) }).default({}),
   content: external_exports.object({ askTitle: text(100).default("\uB370\uC774\uD130\uC5D0 \uC9C8\uBB38\uD558\uAE30"), askAlign: external_exports.enum(["left", "center", "right"]).default("left"), title: text(100), subtitle: text(300), notice: text(500), rankingTitle: text(100), footer: text(300) }),
   layout: external_exports.object({ rankSide: external_exports.enum(["right", "left"]), showRanking: external_exports.boolean(), showStories: external_exports.boolean(), showData: external_exports.boolean(), compact: external_exports.boolean(), accent: external_exports.enum(["lavender", "mint", "blue", "gold"]) }),
-  leaders: external_exports.array(external_exports.object({ id: text(80), name: text(80), party: text(80).default("\uBBF8\uD655\uC778"), role: text(100), regionId: text(80), photo: safeURL, career: text(1500), source: safeURL, level: external_exports.enum(["basic", "metro"]).default("basic"), dataKey: text(100).default(""), asOf: text(30).default("2026-07"), historicalStatus: external_exports.enum(["confirmed", "pending"]).default("pending"), policies: text(3e3).default(""), pledges: text(3e3).default(""), policySource: safeURL.default(""), pledgeSource: safeURL.default(""), photoSource: safeURL.default(""), collectedAt: text(30).default(""), score: external_exports.number().min(0).max(100), change: external_exports.number().min(-100).max(100) })).max(2e3),
+  leaders: external_exports.array(external_exports.object({ id: text(80), name: text(80), party: text(80).default("\uBBF8\uD655\uC778"), partyColor: external_exports.string().regex(/^#[0-9a-fA-F]{6}$/).optional(), partySource: safeURL.optional(), role: text(100), regionId: text(80), photo: safeURL, career: text(1500), source: safeURL, level: external_exports.enum(["basic", "metro"]).default("basic"), dataKey: text(100).default(""), asOf: text(30).default("2026-07"), historicalStatus: external_exports.enum(["confirmed", "pending"]).default("pending"), crimeFacts: text(3e3).optional(), crimeStatus: external_exports.enum(["unverified", "confirmed", "none", "ongoing"]).optional(), crimeSource: external_exports.string().max(1e3).refine((v) => !v || /^https:\/\//.test(v), "\uC0AC\uC2E4 \uD655\uC778 \uCD9C\uCC98\uB294 HTTPS \uC8FC\uC18C\uB97C \uC785\uB825\uD558\uC138\uC694").optional(), crimeCheckedAt: text(30).refine((v) => !v || /^\d{4}-\d{2}-\d{2}$/.test(v), "\uD655\uC778\uC77C\uC740 YYYY-MM-DD \uD615\uC2DD\uC73C\uB85C \uC785\uB825\uD558\uC138\uC694").optional(), policies: text(3e3).default(""), pledges: text(3e3).default(""), policySource: safeURL.default(""), pledgeSource: safeURL.default(""), photoSource: safeURL.default(""), collectedAt: text(30).default(""), score: external_exports.number().min(0).max(100), change: external_exports.number().min(-100).max(100) })).max(2e3),
   records: external_exports.array(external_exports.object({ id: text(100), regionId: text(80), metric: external_exports.number().int().min(0).max(5), value: external_exports.number().finite(), year: external_exports.number().int().min(1900).max(2200), source: safeURL, status: external_exports.enum(["demo", "reference", "verified"]), note: text(500) })).max(1e4),
   sources: external_exports.array(external_exports.object({ id: text(80), name: text(100), sourceLabel: text(150).optional(), keyParam: text(80).optional(), url: safeURL, keyName: external_exports.string().max(80).regex(/^$|^[A-Z][A-Z0-9_]*$/, "\uD0A4 \uAC12 \uB300\uC2E0 KOSIS_API_KEY \uAC19\uC740 \uBCC0\uC218 \uC774\uB984\uB9CC \uC785\uB825\uD558\uC138\uC694"), cycle: text(80), mapping: text(1500) })).max(200),
   stories: external_exports.array(external_exports.object({ id: text(80), title: text(150), body: text(1500) })).max(50)
 }).superRefine((c, ctx) => {
+  c.leaders.forEach((l, i) => {
+    if (l.crimeStatus && l.crimeStatus !== "unverified" && (!l.crimeSource || !l.crimeCheckedAt || !l.crimeFacts?.trim())) ctx.addIssue({ code: "custom", path: ["leaders", i], message: "\uBC94\uC8C4\uC774\uB825 \uD655\uC778 \uC0C1\uD0DC\uB97C \uD45C\uC2DC\uD558\uB824\uBA74 \uC0AC\uC2E4 \uB0B4\uC6A9\xB7\uCD9C\uCC98\xB7\uD655\uC778\uC77C\uC744 \uC785\uB825\uD558\uC138\uC694" });
+  });
   c.datasets.forEach((s, i) => {
     if (s.metadata?.mapping.enabled && (s.metadata.mapping.keyColumn >= s.columns.length || s.metadata.mapping.valueColumn >= s.columns.length)) ctx.addIssue({ code: "custom", path: ["datasets", i], message: "\uC9C0\uB3C4\uC5D0 \uC5F0\uACB0\uD560 \uC9C0\uC5ED\xB7\uC218\uCE58 \uC5F4\uC744 \uD655\uC778\uD558\uC138\uC694" });
     if (s.valueColumn >= s.columns.length) ctx.addIssue({ code: "custom", path: ["datasets", i], message: "\uD45C\uC758 \uC218\uCE58 \uC5F4\uC744 \uC120\uD0DD\uD558\uC138\uC694" });
@@ -9805,7 +9935,7 @@ function normalizeConfig(input) {
   const config = ConfigSchema.parse(input);
   if (config.content.rankingTitle === "\uC9C0\uC790\uCCB4\uC7A5 \uC885\uD569\uC21C\uC704") config.content.rankingTitle = "\uC6D4\uAC04 \uC9C0\uC790\uCCB4 \uB7AD\uD0B9 TOP 10";
   if (config.home.blocks.ranking?.title === "\uC9C0\uC790\uCCB4\uC7A5 \uC885\uD569\uC21C\uC704") config.home.blocks.ranking.title = "\uC6D4\uAC04 \uC9C0\uC790\uCCB4 \uB7AD\uD0B9 TOP 10";
-  if (config.catalogVersion >= 1) return config;
+  if (config.catalogVersion >= 1) return seedIncheon(seedParties(integrateMetro(config)));
   const leaders = [...config.leaders];
   for (const incoming of collected_leaders_default) {
     const at = leaders.findIndex((l) => incoming.regionId ? l.regionId === incoming.regionId : l.name === incoming.name && l.role === incoming.role);
@@ -9816,12 +9946,45 @@ function normalizeConfig(input) {
     const old = leaders[at], legacy = old.source.includes("korean-eyes.com");
     leaders[at] = { ...old, level: incoming.level, dataKey: old.dataKey || incoming.dataKey, asOf: old.asOf || incoming.asOf, collectedAt: old.collectedAt || incoming.collectedAt, historicalStatus: incoming.historicalStatus === "confirmed" ? "confirmed" : old.historicalStatus, career: legacy ? incoming.career || old.career : old.career || incoming.career, source: legacy ? incoming.source : old.source || incoming.source, photo: old.photo || incoming.photo, photoSource: old.photoSource || incoming.photoSource, policies: old.policies || incoming.policies, pledges: old.pledges || incoming.pledges, policySource: old.policySource || incoming.policySource, pledgeSource: old.pledgeSource || incoming.pledgeSource };
   }
-  return ConfigSchema.parse({ ...config, leaders, catalogVersion: 1, content: { ...config.content, notice: config.content.notice === "\uC2DC\uC5F0\uC6A9 \uC885\uD569\uC21C\uC704 \xB7 \uC810\uC218\uB294 \uC784\uC758\uB85C \uAD6C\uC131\uD588\uC2B5\uB2C8\uB2E4. \uC2E4\uC81C \uD3C9\uAC00\uAC00 \uC544\uB2D9\uB2C8\uB2E4." ? "\uC885\uD569\uC21C\uC704\uB294 \uB4F1\uB85D\uD55C \uC9C0\uC5ED \uB370\uC774\uD130\uC758 \uC0C1\uB300 \uC21C\uC704\uB97C \uD569\uC0B0\uD55C tvU \uC9C0\uC218\uC785\uB2C8\uB2E4." : config.content.notice } });
+  return seedIncheon(seedParties(integrateMetro(ConfigSchema.parse({ ...config, leaders, catalogVersion: 1, content: { ...config.content, notice: config.content.notice === "\uC2DC\uC5F0\uC6A9 \uC885\uD569\uC21C\uC704 \xB7 \uC810\uC218\uB294 \uC784\uC758\uB85C \uAD6C\uC131\uD588\uC2B5\uB2C8\uB2E4. \uC2E4\uC81C \uD3C9\uAC00\uAC00 \uC544\uB2D9\uB2C8\uB2E4." ? "\uC885\uD569\uC21C\uC704\uB294 \uB4F1\uB85D\uD55C \uC9C0\uC5ED \uB370\uC774\uD130\uC758 \uC0C1\uB300 \uC21C\uC704\uB97C \uD569\uC0B0\uD55C tvU \uC9C0\uC218\uC785\uB2C8\uB2E4." : config.content.notice } }))));
+}
+function seedIncheon(config) {
+  if (config.incheonRevision >= 1) return config;
+  const leaders = [...config.leaders];
+  for (const slot of incheon_slots_default) {
+    if (!leaders.some((l) => l.regionId === slot.regionId)) leaders.push(slot);
+  }
+  return { ...config, incheonRevision: 1, leaders };
+}
+function seedParties(config) {
+  if (config.partyRevision >= 1) return config;
+  return { ...config, partyRevision: 1, leaders: config.leaders.map((l) => {
+    const seed = collected_leaders_default.find((s) => s.level === "metro" && s.name === l.name);
+    return l.level === "metro" && l.party === "\uBBF8\uD655\uC778" && seed?.party ? { ...l, party: seed.party, partySource: seed.partySource } : l;
+  }) };
+}
+function integrateMetro(config) {
+  if (config.regionRevision >= 1) return config;
+  const leaders = config.leaders.map((l) => l.level === "metro" && (l.regionId === "unmapped-\uC804\uB0A8\uAD11\uC8FC" || l.dataKey === "\uC804\uB0A8\uAD11\uC8FC" || l.role === "\uC804\uB0A8\uAD11\uC8FC\uC2DC\uC7A5") ? { ...l, regionId: "JN-GJ", role: "\uC804\uB0A8\uAD11\uC8FC\uD1B5\uD569\uD2B9\uBCC4\uC2DC\uC7A5", dataKey: "\uC804\uB0A8\uAD11\uC8FC\uD1B5\uD569\uD2B9\uBCC4\uC2DC", historicalStatus: l.name === "\uBBFC\uD615\uBC30" ? "confirmed" : l.historicalStatus, ...l.name === "\uBBFC\uD615\uBC30" ? { career: l.career || "\uC81C21\xB722\uB300 \uAD6D\uD68C\uC758\uC6D0(\uAD11\uC8FC \uAD11\uC0B0\uAD6C\uC744)\n\uB300\uD1B5\uB839\uBE44\uC11C\uC2E4 \uC790\uCE58\uBC1C\uC804\uBE44\uC11C\uAD00\xB7\uC0AC\uD68C\uC815\uCC45\uBE44\uC11C\uAD00\n\uBBFC\uC120 5\xB76\uAE30 \uAD11\uC8FC \uAD11\uC0B0\uAD6C\uCCAD\uC7A5", source: "https://www.jeonnam-gwangju.go.kr/mayor/contentsView.do?pageId=mayor6", collectedAt: "2026-10-08" } : {} } : l);
+  return { ...config, regionRevision: 1, leaders, datasets: config.datasets.map((s) => ({ ...s, rows: s.rows.map((r) => r[0] === "\uC804\uB0A8\uAD11\uC8FC" ? ["\uC804\uB0A8\uAD11\uC8FC\uD1B5\uD569\uD2B9\uBCC4\uC2DC", ...r.slice(1)] : r) })) };
 }
 var defaults = normalizeConfig(railway_baseline_default);
+
+// lib/production-config.ts
+function normalizeStoredConfig(input) {
+  const saved = ConfigSchema.parse(input);
+  const next = normalizeConfig({ ...saved, catalogVersion: 1, partyRevision: 1 });
+  const existing = new Map(saved.leaders.map((leader) => [leader.id, leader]));
+  return { ...next, leaders: next.leaders.map((leader) => {
+    const original = existing.get(leader.id);
+    if (!original) return leader;
+    return { ...original, regionId: leader.regionId, role: leader.role, dataKey: leader.dataKey };
+  }) };
+}
 export {
   ConfigSchema,
   defaults,
   metricNames,
-  normalizeConfig
+  normalizeConfig,
+  normalizeStoredConfig
 };

@@ -1,5 +1,5 @@
 import {build} from 'esbuild';
-await build({entryPoints:['lib/model.ts'],outfile:'model.bundle.mjs',bundle:true,platform:'node',format:'esm'});
+await build({stdin:{contents:"export * from './lib/model.ts'; export * from './lib/production-config.ts';",resolveDir:process.cwd(),sourcefile:'production-model.ts'},outfile:'model.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 await build({entryPoints:['lib/sysop-auth.ts'],outfile:'auth.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 await build({entryPoints:['lib/table-engine.ts'],outfile:'table.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 

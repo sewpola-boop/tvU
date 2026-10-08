@@ -1,0 +1,3 @@
+import type {Config} from '../lib/model';
+export const crimeLabels={unverified:'사실 확인 필요',confirmed:'확정판결 확인',none:'확인한 공개 자료상 이력 없음',ongoing:'수사·재판 진행 · 확정판결 아님'};
+export function LeaderFacts({leader}:{leader:Config['leaders'][number]}){return <section className="leader-facts panel"><div className="row-title"><h3>범죄이력 사실</h3><span className="chip">{crimeLabels[leader.crimeStatus||'unverified']}</span></div><p className="fact-body">{leader.crimeFacts?.trim()||'자료 미기입 · 확인된 사실 자료를 등록해 주세요.'}</p>{leader.crimeSource&&<a className="text-link" href={leader.crimeSource} target="_blank" rel="noreferrer">사실 확인 출처 ↗</a>}{leader.crimeCheckedAt&&<p className="tiny muted">자료 확인일: {leader.crimeCheckedAt}</p>}</section>}

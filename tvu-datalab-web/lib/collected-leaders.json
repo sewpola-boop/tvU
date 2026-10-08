@@ -4239,7 +4239,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "국민의힘",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-48",
@@ -4260,7 +4262,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "국민의힘",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-11",
@@ -4281,7 +4285,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "국민의힘",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-26",
@@ -4302,7 +4308,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-43",
@@ -4323,7 +4331,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-36",
@@ -4344,7 +4354,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-51",
@@ -4365,7 +4377,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-30",
@@ -4386,7 +4400,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-31",
@@ -4407,7 +4423,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-50",
@@ -4428,28 +4446,32 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-unmapped-전남광주",
     "name": "민형배",
-    "role": "전남광주시장",
-    "regionId": "unmapped-전남광주",
+    "role": "전남광주통합특별시장",
+    "regionId": "JN-GJ",
     "photo": "",
-    "career": "",
-    "source": "https://www.realmeter.net/",
+    "career": "제21·22대 국회의원(광주 광산구을)\n대통령비서실 자치발전비서관·사회정책비서관\n민선 5·6기 광주 광산구청장",
+    "source": "https://www.jeonnam-gwangju.go.kr/mayor/contentsView.do?pageId=mayor6",
     "level": "metro",
-    "dataKey": "전남광주",
+    "dataKey": "전남광주통합특별시",
     "asOf": "2026-07",
-    "historicalStatus": "pending",
+    "historicalStatus": "confirmed",
     "policies": "",
     "pledges": "",
     "policySource": "",
     "pledgeSource": "",
     "photoSource": "",
-    "collectedAt": "2026-10-07",
+    "collectedAt": "2026-10-08",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-44",
@@ -4470,7 +4492,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-27",
@@ -4491,7 +4515,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "국민의힘",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-45",
@@ -4512,7 +4538,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-41",
@@ -4533,7 +4561,9 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   },
   {
     "id": "metro-28",
@@ -4554,6 +4584,8 @@
     "photoSource": "",
     "collectedAt": "2026-10-07",
     "score": 0,
-    "change": 0
+    "change": 0,
+    "party": "더불어민주당",
+    "partySource": "https://www.wikitree.co.kr/articles/1139701"
   }
 ]

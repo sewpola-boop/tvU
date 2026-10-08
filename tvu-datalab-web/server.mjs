@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
-import {ConfigSchema,defaults,normalizeConfig} from './model.bundle.mjs';
+import {ConfigSchema,defaults,normalizeStoredConfig} from './model.bundle.mjs';
 import {login,session,changePassword,cookie} from './auth.bundle.mjs';
 import {registerMember,loginMember,memberSession,memberCookie} from './member.bundle.mjs';
 import {answerChat,aiConfigured,consumeChatRate,ChatRequestSchema,chatQuota,consumeChatQuota,CHAT_LIMIT_MESSAGE} from './chat.bundle.mjs';
@@ -14,11 +14,17 @@ const root=path.dirname(fileURLToPath(import.meta.url)),data=path.resolve(proces
 if(!origin||(!origin.startsWith('https://')&&!/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)))throw Error('PUBLIC_ORIGIN 또는 Railway 도메인 설정이 필요합니다.');
 for(const folder of ['raw','history','auth','logos'])await fs.mkdir(path.join(data,folder),{recursive:true});
 const hash=v=>crypto.createHash('sha256').update(v).digest('hex'),digest=v=>crypto.createHash('sha256').update(v).digest();
+// Snapshot persisted editorial JSON before a release reads/migrates it. Repeated
+// starts with identical data reuse the same backup rather than multiplying it.
+for(const name of ['published.json','draft.json']){
+ try{const text=await fs.readFile(path.join(data,name),'utf8');await fs.writeFile(path.join(data,'history','deploy-'+hash(text)+'-'+name),text,{flag:'wx',mode:0o600})}
+ catch(e){if(e.code!=='ENOENT'&&e.code!=='EEXIST')throw e}
+}
 const previewAuth=req=>{if(!previewPassword)return true;const h=req.headers.authorization||'';return h.startsWith('Basic ')&&crypto.timingSafeEqual(digest(Buffer.from(h.slice(6),'base64').toString()),digest((process.env.ADMIN_USER||'admin')+':'+previewPassword))};
 let queue=Promise.resolve();function serial(fn){const job=queue.then(fn);queue=job.catch(()=>{});return job}
 async function atomic(file,text){await fs.mkdir(path.dirname(file),{recursive:true});const temp=file+'.'+crypto.randomUUID()+'.tmp';await fs.writeFile(temp,text,{mode:0o600});await fs.rename(temp,file)}
 const authStore={async list({prefix,limit=100,cursor}){const names=await fs.readdir(path.join(data,prefix)).catch(e=>{if(e.code==='ENOENT')return [];throw e});const sorted=names.filter(n=>/^[a-f0-9]{64}$/.test(n)).sort(),start=cursor?sorted.findIndex(n=>n>cursor):0,items=start<0?[]:sorted.slice(start,start+limit);return {objects:items.map(n=>({key:prefix+n})),truncated:start>=0&&start+items.length<sorted.length,cursor:items.at(-1)}},async get(key){try{const text=await fs.readFile(path.join(data,key),'utf8');return {etag:hash(text),json:async()=>JSON.parse(text)}}catch(e){if(e.code==='ENOENT')return null;throw e}},async put(key,text,options){return serial(async()=>{const old=await this.get(key),check=options?.onlyIf;if(check?.etagDoesNotMatch==='*'&&old||check?.etagMatches&&old?.etag!==check.etagMatches)return null;await atomic(path.join(data,key),text);return {etag:hash(text)}})},async delete(key){await fs.rm(path.join(data,key),{force:true})}};
-async function read(name){try{const text=await fs.readFile(path.join(data,name),'utf8');return {config:normalizeConfig(JSON.parse(text)),etag:hash(text),updated:(await fs.stat(path.join(data,name))).mtime.toISOString()}}catch(e){if(e.code==='ENOENT')return {config:defaults,etag:null,updated:null};throw e}}
+async function read(name){try{const text=await fs.readFile(path.join(data,name),'utf8');return {config:normalizeStoredConfig(JSON.parse(text)),etag:hash(text),updated:(await fs.stat(path.join(data,name))).mtime.toISOString()}}catch(e){if(e.code==='ENOENT')return {config:defaults,etag:null,updated:null};throw e}}
 async function write(name,config,etag){const old=await read(name);if(old.etag!==etag)throw Object.assign(Error('다른 편집이 먼저 저장되었습니다. 다시 불러오세요.'),{status:409});await atomic(path.join(data,name),JSON.stringify(ConfigSchema.parse(config)));return read(name)}
 const json=(res,value,status=200,headers={})=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',...headers});res.end(JSON.stringify(value))};
 async function body(req,max=6000000){let size=0,chunks=[];for await(const c of req){size+=c.length;if(size>max)throw Object.assign(Error('입력 크기 제한을 초과했습니다.'),{status:413});chunks.push(c)}return Buffer.concat(chunks)}
