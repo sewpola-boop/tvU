@@ -11,3 +11,11 @@ ChatGPT Sites의 최신 화면과 관리자 기능을 Node/Vite 서버로 옮긴
 - 서버의 기존 `draft.json`과 `published.json`은 유지하고 누락된 설정만 기본값으로 보완합니다. ChatGPT Sites에서 저장한 편집본은 관리자 설정 JSON 내보내기/불러오기로 이전합니다.
 
 개발: `npm install`, `npm run build`, `PUBLIC_ORIGIN=http://127.0.0.1:3000 DATA_DIR=./data npm start`. 서버 데이터 경로는 GitHub에 올리지 않습니다.
+
+
+## 데이터 채팅과 향후 OpenAI 연결
+- `/api/chat`는 서버에서 공개·검색 연결 자료만 조회합니다. 대화 기록은 브라우저 탭의 sessionStorage에 보관하며 새 대화로 지울 수 있습니다. 최신 24개 메시지/2만 글자 이내의 문맥만 API로 보냅니다.
+- 기본 설정은 원수치 검색입니다. OpenAI 연결 시 Railway 서버 비밀 변수에 `OPENAI_API_KEY`, 사용 가능한 모델 ID인 `OPENAI_MODEL`, `OPENAI_CHAT_ENABLED=true`를 설정합니다. 프런트엔드/VITE 변수, 소스, 관리자 공개 설정에는 키를 넣지 마세요.
+- AI 호출은 초기에는 관리자 세션에 한정합니다. 일반 방문자는 키 설정 후에도 자료 검색을 제공합니다. 회원·유료구독 AI 공개는 서버의 구독 권한 검증과 연동한 뒤 별도로 확장하세요.
+- Responses API 서버 어댑터는 최근 대화 및 검색된 자료를 전달하고 `store:false`로 호출합니다. API 키 없이 모의 응답으로 검증했으며 실제 유료 API 호출은 수행하지 않았습니다.
+- 공식 참고: https://developers.openai.com/api/docs/guides/conversation-state

@@ -7,7 +7,7 @@ RUN npm run build
 FROM node:22-alpine
 WORKDIR /app
 COPY --from=build /app/dist ./dist
-COPY --from=build /app/model.bundle.mjs /app/auth.bundle.mjs /app/table.bundle.mjs /app/member.bundle.mjs ./
+COPY --from=build /app/model.bundle.mjs /app/auth.bundle.mjs /app/table.bundle.mjs /app/member.bundle.mjs /app/chat.bundle.mjs ./
 COPY server.mjs package.json ./
 ENV NODE_ENV=production PORT=3000 DATA_DIR=/data
 EXPOSE 3000
