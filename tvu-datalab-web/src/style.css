@@ -59,7 +59,7 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .chat-intro form button:active,.chat-intro .data-chips button:active{transform:scale(.97)}
 @media(prefers-reduced-motion:reduce){.chat-enter,.chat-enter .chat-message:last-child{animation:none}.chat-intro form button,.chat-intro .data-chips button{transition:none;transform:none}}
 /* Floating vertical data conversation. Native modal keeps focus in the dialog. */
-.chat-dialog{position:fixed;inset:0;margin:auto;width:min(720px,calc(100vw - 28px));height:min(880px,92dvh);max-height:92dvh;border:0;border-radius:26px;padding:0;background:#f6f8fc;box-shadow:0 36px 110px #101a3a66;overflow:hidden;animation:tvu-chat-open .45s cubic-bezier(.16,1,.3,1) both}
+.chat-dialog{position:fixed;inset:0;margin:auto;width:min(720px,calc(100vw - 28px));height:min(1100px,97dvh);max-height:97dvh;border:0;border-radius:26px;padding:0;background:#f6f8fc;box-shadow:0 36px 110px #101a3a66;overflow:hidden;animation:tvu-chat-open .45s cubic-bezier(.16,1,.3,1) both}
 .chat-dialog::backdrop{background:#17223d66;backdrop-filter:blur(10px);animation:chat-backdrop .35s ease both}
 @keyframes chat-backdrop{from{opacity:0;backdrop-filter:blur(0)}to{opacity:1;backdrop-filter:blur(10px)}}
 .chat-dialog-close{position:absolute;right:18px;top:16px;z-index:3;border:0;background:#edf0f8;border-radius:20px;padding:7px 13px;color:#324163}
@@ -68,8 +68,8 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .chat-dialog .chat-scroll-wrap{flex:1;min-height:0}.chat-dialog .chat-transcript{height:100%;max-height:none;padding:16px 6px;min-height:0}
 .chat-dialog .chat-mode,.chat-dialog .chat-composer,.chat-dialog .chat-footnote,.chat-dialog .chat-suggestions{flex-shrink:0}
 .chat-dialog .chat-message-main{max-width:88%;min-width:0}.chat-dialog .chat-bubble{overflow:hidden}.chat-visual{margin:16px 0 6px;max-width:100%}.chat-visual .sheet-public{padding:14px;background:#f6f8fc;box-shadow:none}.chat-visual .sheet-public h2{font-size:16px}.chat-visual .sheet-public .sheet-scroll{max-height:280px}.chat-visual .monthly-identity{font-size:12px}.chat-dialog .chat-sources{font-size:12px}
-.ranking-departure{background:color-mix(in srgb,var(--accent) 9%,var(--panel));color:var(--text);border-radius:13px;padding:16px 12px;margin:16px 0 10px;box-shadow:none;border:1px solid var(--line)}.ranking-departure>small{display:block;color:var(--muted);letter-spacing:2px;font-size:9px;margin-bottom:10px}.ranking-departure>.ranking-baseline-editor{background:#f5f7fb;padding:16px;border-radius:12px;margin:12px 0}.ranking-baseline-editor button{margin:8px 6px 0 0}
-@media(max-width:600px){.chat-dialog{width:calc(100vw - 16px);height:94dvh;max-height:94dvh;border-radius:20px}.chat-dialog .data-chat{padding:16px 12px}.chat-dialog .chat-heading h2{font-size:19px}.chat-dialog .chat-heading{padding-right:74px}.chat-dialog-close{right:12px;top:12px}.chat-dialog .chat-mode small{display:none}.chat-dialog .chat-message-main{max-width:92%}.chat-dialog .chat-suggestions{overflow:auto;white-space:nowrap}.chat-dialog .chat-footnote{font-size:10px}.chat-visual .sheet-bars>div{flex-wrap:wrap}}
+.ranking-departure{background:color-mix(in srgb,var(--accent) 9%,var(--panel));color:var(--text);border-radius:13px;padding:16px 12px;margin:16px 0 10px;box-shadow:none;border:1px solid var(--line)}.ranking-departure>small{display:block;color:var(--muted);letter-spacing:2px;font-size:9px;margin-bottom:10px}.ranking-baseline-editor{background:#f5f7fb;padding:16px;border-radius:12px;margin:12px 0}.ranking-baseline-editor button{margin:8px 6px 0 0}
+@media(max-width:600px){.chat-dialog{width:calc(100vw - 16px);height:97dvh;max-height:97dvh;border-radius:20px}.chat-dialog .data-chat{padding:16px 12px}.chat-dialog .chat-heading h2{font-size:19px}.chat-dialog .chat-heading{padding-right:74px}.chat-dialog-close{right:12px;top:12px}.chat-dialog .chat-mode small{display:none}.chat-dialog .chat-message-main{max-width:92%}.chat-dialog .chat-suggestions{overflow:auto;white-space:nowrap}.chat-dialog .chat-footnote{font-size:10px}.chat-visual .sheet-bars>div{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.chat-dialog,.chat-dialog::backdrop{animation:none}}
 
 /* Each complete ranking card is one flap; slots turn from first to tenth. */
@@ -80,10 +80,14 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .rank-flap-half>.rank-row{position:absolute;left:0;top:0}.rank-flap-top{top:0;transform-origin:center bottom;border-radius:11px 11px 0 0;z-index:2;animation:rank-card-top .32s var(--rank-delay) ease-in both}
 .rank-flap-bottom,.rank-flap-old-bottom{bottom:0;border-radius:0 0 11px 11px}.rank-flap-bottom>.rank-row,.rank-flap-old-bottom>.rank-row{top:calc(var(--rank-card-height) / -2)}
 .rank-flap-bottom{transform-origin:center top;z-index:3;animation:rank-card-bottom .32s calc(var(--rank-delay) + .32s) ease-out both}.rank-flap-old-bottom{z-index:1;animation:rank-card-old .64s var(--rank-delay) linear both}
-.rank-flap-slot:after{content:'';position:absolute;left:2px;right:2px;top:50%;height:1px;background:color-mix(in srgb,var(--line) 55%,transparent);pointer-events:none;z-index:4}
+
 .rank-flap-slot:focus-visible{outline:2px solid var(--accent)}.rank-flap-slot:hover .rank-row{border-color:var(--accent)}
 .monthly-ranking .rank-num{font-size:21px;color:var(--accent)}.monthly-ranking .rank-info strong{display:block;color:var(--text)}.monthly-ranking .rank-info small{display:block;font-size:10px}.monthly-ranking .rank-score b{color:var(--accent)}
 @keyframes rank-card-top{0%{transform:rotateX(0);filter:brightness(1)}100%{transform:rotateX(-90deg);filter:brightness(.85)}}
 @keyframes rank-card-bottom{0%{transform:rotateX(90deg);filter:brightness(.85)}100%{transform:rotateX(0);filter:brightness(1)}}
 @keyframes rank-card-old{0%,99%{opacity:1}100%{opacity:0}}
-@media(prefers-reduced-motion:reduce){.rank-flap-stage{display:none}.rank-flap-slot:after{display:none}}
+@media(prefers-reduced-motion:reduce){.rank-flap-stage{display:none}}
+
+.ranking-theme-title{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;font-size:19px;color:var(--text)}
+.ranking-theme-title .rank-crown{display:inline-flex;align-items:center}
+.rank-change{display:block;font-size:11px;font-weight:800;margin-top:4px}.rank-change.up{color:#d93846}.rank-change.down{color:#2879dc}.rank-change.same,.rank-change.unknown{color:#8d98aa}
