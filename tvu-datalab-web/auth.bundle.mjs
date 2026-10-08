@@ -18,7 +18,7 @@ async function account(store) {
   if (!obj) throw Error("\uACC4\uC815\uC744 \uCD08\uAE30\uD654\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4.");
   return { value: await obj.json(), etag: obj.etag };
 }
-var cookie = (token, maxAge = 28800) => `__Host-tvu_sysop=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}`;
+var cookie = (token, maxAge = 28800) => `__Host-tvu_sysop=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`;
 async function session(req, store) {
   const token = req.headers.get("cookie")?.match(/(?:^|;\s*)__Host-tvu_sysop=([a-f0-9]{64})(?:;|$)/)?.[1];
   if (!token) return null;

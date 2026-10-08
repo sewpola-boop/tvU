@@ -4262,22 +4262,60 @@ async function answerChat(config, payload, env, allowAI, send = fetch) {
 
 // lib/chat-rate.ts
 async function consumeChatRate(req, store, max) {
-  const identity = req.headers.get("oai-authenticated-user-id") || req.headers.get("cf-connecting-ip") || "shared", digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(identity)), key = "auth/chat-rate/" + Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  const identity = req.headers.get("oai-authenticated-user-id") || req.headers.get("cf-connecting-ip") || "shared", digest2 = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(identity)), key = "auth/chat-rate/" + Array.from(new Uint8Array(digest2)).map((b) => b.toString(16).padStart(2, "0")).join("");
   const now = Date.now(), obj = await store.get(key), old = obj ? await obj.json() : null, rate = old && old.until > now ? old : { count: 0, until: now + 6e4 };
   if (rate.count >= max) return false;
   const saved = await store.put(key, JSON.stringify({ ...rate, count: rate.count + 1 }), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: "*" } });
   return !!saved;
 }
+
+// lib/sysop-auth.ts
+var encoder = new TextEncoder();
+async function digest(value) {
+  return Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", encoder.encode(value)))).map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+
+// lib/chat-quota.ts
+var FREE_CHAT_LIMIT = 5;
+var CHAT_LIMIT_MESSAGE = "\uBB34\uB8CC \uD50C\uB79C\uC740 \uCC44\uD305 \uC9C8\uBB38 5\uD68C\uB85C \uC81C\uD55C\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4. \uD504\uB9AC\uBBF8\uC5C4 \uAD6C\uB3C5\uC744 \uD574\uC11C \uB354 \uB9CE\uC740 \uB370\uC774\uD130\uB97C \uC27D\uACE0 \uD3B8\uD558\uAC8C \uAC80\uC0C9\uD558\uC138\uC694.";
+function quotaStatus(used, unlimited = false) {
+  return { used, limit: unlimited ? null : FREE_CHAT_LIMIT, remaining: unlimited ? null : Math.max(0, FREE_CHAT_LIMIT - used), limited: !unlimited && used >= FREE_CHAT_LIMIT };
+}
+async function quotaKey(req, username) {
+  const identity = username ? "member:" + username : req.headers.get("oai-authenticated-user-id") ? "viewer:" + req.headers.get("oai-authenticated-user-id") : "guest:" + (req.headers.get("cf-connecting-ip") || "shared");
+  return "auth/chat-quota/" + await digest(identity);
+}
+async function chatQuota(req, store, unlimited, username) {
+  if (unlimited) return quotaStatus(0, true);
+  const obj = await store.get(await quotaKey(req, username));
+  return quotaStatus(obj ? (await obj.json()).used || 0 : 0);
+}
+async function consumeChatQuota(req, store, unlimited, username) {
+  if (unlimited) return { allowed: true, quota: quotaStatus(0, true) };
+  const key = await quotaKey(req, username);
+  for (let n = 0; n < 4; n++) {
+    const obj = await store.get(key), used = obj ? (await obj.json()).used || 0 : 0;
+    if (used >= FREE_CHAT_LIMIT) return { allowed: false, quota: quotaStatus(used) };
+    const saved = await store.put(key, JSON.stringify({ used: used + 1 }), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: "*" } });
+    if (saved) return { allowed: true, quota: quotaStatus(used + 1) };
+  }
+  throw Error("\uB2E4\uB978 \uC9C8\uBB38\uC744 \uCC98\uB9AC \uC911\uC785\uB2C8\uB2E4. \uC7A0\uC2DC \uD6C4 \uB2E4\uC2DC \uC2DC\uB3C4\uD574 \uC8FC\uC138\uC694.");
+}
 export {
   CHAT_HISTORY_KEY,
+  CHAT_LIMIT_MESSAGE,
   ChatReplySchema,
   ChatRequestSchema,
   ChatSourceSchema,
+  FREE_CHAT_LIMIT,
   aiConfigured,
   answerChat,
+  chatQuota,
+  consumeChatQuota,
   consumeChatRate,
   conversationRequest,
   dataReply,
+  quotaStatus,
   restoreChatHistory,
   retrieveChatSources
 };

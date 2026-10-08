@@ -5,6 +5,6 @@ await build({entryPoints:['lib/table-engine.ts'],outfile:'table.bundle.mjs',bund
 
 await build({entryPoints:['lib/member-auth.ts'],outfile:'member.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 
-await build({stdin:{contents:"export * from './lib/chat-service.ts'; export * from './lib/chat-protocol.ts'; export * from './lib/chat-rate.ts';",resolveDir:process.cwd(),sourcefile:'chat-server.ts'},outfile:'chat.bundle.mjs',bundle:true,platform:'node',format:'esm'});
+await build({stdin:{contents:"export * from './lib/chat-service.ts'; export * from './lib/chat-protocol.ts'; export * from './lib/chat-rate.ts'; export * from './lib/chat-quota.ts';",resolveDir:process.cwd(),sourcefile:'chat-server.ts'},outfile:'chat.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 
 await build({stdin:{contents:"export * from './lib/access.ts'; export * from './lib/government-api.ts';",resolveDir:process.cwd(),sourcefile:'operations.ts'},outfile:'operations.bundle.mjs',bundle:true,platform:'node',format:'esm'});

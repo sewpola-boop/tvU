@@ -1,0 +1,8 @@
+import {digest,type AuthStore} from './sysop-auth';
+export const FREE_CHAT_LIMIT=5;
+export const CHAT_LIMIT_MESSAGE='무료 플랜은 채팅 질문 5회로 제한되어 있습니다. 프리미엄 구독을 해서 더 많은 데이터를 쉽고 편하게 검색하세요.';
+export type ChatQuota={used:number;limit:number|null;remaining:number|null;limited:boolean};
+export function quotaStatus(used:number,unlimited=false):ChatQuota{return {used,limit:unlimited?null:FREE_CHAT_LIMIT,remaining:unlimited?null:Math.max(0,FREE_CHAT_LIMIT-used),limited:!unlimited&&used>=FREE_CHAT_LIMIT}}
+async function quotaKey(req:Request,username?:string){const identity=username?'member:'+username:req.headers.get('oai-authenticated-user-id')?'viewer:'+req.headers.get('oai-authenticated-user-id'):'guest:'+(req.headers.get('cf-connecting-ip')||'shared');return 'auth/chat-quota/'+await digest(identity)}
+export async function chatQuota(req:Request,store:AuthStore,unlimited:boolean,username?:string){if(unlimited)return quotaStatus(0,true);const obj=await store.get(await quotaKey(req,username));return quotaStatus(obj?(await obj.json()).used||0:0)}
+export async function consumeChatQuota(req:Request,store:AuthStore,unlimited:boolean,username?:string){if(unlimited)return {allowed:true,quota:quotaStatus(0,true)};const key=await quotaKey(req,username);for(let n=0;n<4;n++){const obj=await store.get(key),used=obj?(await obj.json()).used||0:0;if(used>=FREE_CHAT_LIMIT)return {allowed:false,quota:quotaStatus(used)};const saved=await store.put(key,JSON.stringify({used:used+1}),{onlyIf:obj?{etagMatches:obj.etag}:{etagDoesNotMatch:'*'}});if(saved)return {allowed:true,quota:quotaStatus(used+1)}}throw Error('다른 질문을 처리 중입니다. 잠시 후 다시 시도해 주세요.')}
