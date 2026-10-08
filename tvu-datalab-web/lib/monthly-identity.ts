@@ -1,0 +1,5 @@
+import type {Config} from './model';
+const clean=(s:string)=>s.trim().replace(/특별자치도$|특별자치시$|특별시$|광역시$|도$/,'');
+const aliases:Record<string,string>={경기:'경기',강원:'강원',충북:'충청북',충남:'충청남',전북:'전북',전남:'전라남',경북:'경상북',경남:'경상남'};
+export function monthlyIdentity(sheetId:string,row:string[],leaders:Config['leaders']){const region=row[0]||'',named=sheetId.startsWith('realmeter-')?(row[1]||''):'';if(sheetId==='realmeter-education'){const found=leaders.filter(l=>l.name===named&&/교육감/.test(l.role));return {region,name:named||'자료 미등록',leader:found.length===1?found[0]:undefined,education:true}}
+ const candidates=leaders.filter(l=>l.level==='metro'&&(l.dataKey===region||l.regionId===region||clean(l.role.replace(/지사$|시장$/,''))===(aliases[region]||clean(region))));const namedMatches=named?candidates.filter(l=>l.name===named):candidates;const leader=namedMatches.length===1?namedMatches[0]:undefined;return {region,name:named||leader?.name||'단체장 미등록',leader,education:false}}

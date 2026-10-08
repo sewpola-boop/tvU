@@ -1,0 +1,3 @@
+'use client';
+import {useEffect,useState} from 'react';
+export default function AccountNav(){const [me,setMe]=useState<{admin:boolean;user?:{name:string}}|null>(null),[error,setError]=useState('');useEffect(()=>{fetch('/api/me').then(r=>r.json()).then((b:any)=>setMe(b)).catch(()=>{})},[]);return <>{me?.admin?<a href="/sysop">관리자 모드 ↗</a>:me?.user?<span className="member-name">{me.user.name}님</span>:<a href="/login" className="admin-link">로그인</a>}{me?.admin||me?.user?<button onClick={async()=>{try{const r=await fetch('/api/auth/logout',{method:'POST'});if(!r.ok)throw Error();setMe(null);location.assign('/')}catch{setError('로그아웃 실패')}}}>로그아웃</button>:<a href="/signup">회원가입</a>}{error&&<span role="alert">{error}</span>}</>}
