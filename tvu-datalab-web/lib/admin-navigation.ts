@@ -1,4 +1,4 @@
 export const homeTabs=[{id:'content',title:'문구·기사',group:'콘텐츠·구성'},{id:'layout',title:'레이아웃',group:'콘텐츠·구성'},{id:'chat',title:'채팅창 편집',group:'콘텐츠·구성'},{id:'appearance',title:'색상·로고',group:'디자인'},{id:'mapstyle',title:'지도 색상·효과',group:'디자인'},{id:'subscription',title:'프리미엄 구독',group:'구독 운영'}];
 export const dataTabs=[{id:'leaders',title:'전국 단체장 정보',group:'기준 정보'},{id:'sources',title:'정부 API',group:'수집·입력'},{id:'input',title:'데이터 입력',group:'수집·입력'},{id:'datasets',title:'데이터 관리',group:'검수·연결'}];
-export function adminSection(tab:string){return ['datacenter','leaders','sources','input','tables','data','raw','datasets','ranking'].includes(tab)?'datacenter':tab==='password'?'password':'homepage'}
+export function adminSection(tab:string){return ['datacenter','leaders','sources','input','tables','data','raw','datasets','ranking'].includes(tab)?'datacenter':tab==='password'?'password':tab==='members'?'members':'homepage'}
 export function activeSubTab(tab:string){return ['tables','data','raw'].includes(tab)?'input':['datacenter','ranking'].includes(tab)?'datasets':tab}

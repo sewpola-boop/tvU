@@ -1,4 +1,4 @@
-export type AuthStore={get:(key:string)=>Promise<any>;put:(key:string,value:string,options?:any)=>Promise<any>;delete:(key:string)=>Promise<any>};
+export type AuthStore={list?:(options:any)=>Promise<any>;get:(key:string)=>Promise<any>;put:(key:string,value:string,options?:any)=>Promise<any>;delete:(key:string)=>Promise<any>};
 const key='auth/sysop.json',encoder=new TextEncoder();
 export async function digest(value:string){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(value)))).map(x=>x.toString(16).padStart(2,'0')).join('')}
 export async function passwordHash(password:string,salt:string){const material=await crypto.subtle.importKey('raw',encoder.encode(password),'PBKDF2',false,['deriveBits']);return Array.from(new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:encoder.encode(salt),iterations:100000},material,256))).map(x=>x.toString(16).padStart(2,'0')).join('')}
