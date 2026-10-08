@@ -91,3 +91,12 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .ranking-theme-title{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;font-size:19px;color:var(--text)}
 .ranking-theme-title .rank-crown{display:inline-flex;align-items:center}
 .rank-change{display:block;font-size:11px;font-weight:800;margin-top:4px}.rank-change.up{color:#d93846}.rank-change.down{color:#2879dc}.rank-change.same,.rank-change.unknown{color:#8d98aa}
+.chat-dialog{min-width:min(320px,calc(100vw - 28px));min-height:min(440px,97dvh);max-width:calc(100vw - 16px);max-height:97dvh;resize:both}
+.chat-dialog::backdrop{backdrop-filter:blur(var(--chat-blur,10px))}
+@keyframes chat-backdrop{from{opacity:0;backdrop-filter:blur(0)}to{opacity:1;backdrop-filter:blur(var(--chat-blur,10px))}}
+.chat-dialog .chat-suggestions button{background:var(--chat-chip-bg,#000);color:var(--chat-chip-text,#fff);border-color:var(--chat-chip-bg,#000)}
+.chat-dialog .data-chat{padding-bottom:34px}.chat-resize-hint{position:absolute;bottom:6px;right:20px;font-size:10px;color:#7c879a;pointer-events:none}
+.inline-ranking-settings{padding:14px;margin:12px 0;background:color-mix(in srgb,var(--accent) 8%,var(--panel));border:1px dashed var(--accent);border-radius:10px}.inline-ranking-settings label{display:block;margin:10px 0}
+.monthly-ranking [contenteditable=true]{cursor:text;outline:1px dashed var(--accent);outline-offset:5px;border-radius:3px}
+
+@keyframes chat-backdrop{from{opacity:0}to{opacity:1}}
