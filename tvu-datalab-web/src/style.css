@@ -284,3 +284,5 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .map-line-card .map-leader-role{font-size:.75em;font-weight:500;white-space:nowrap}
 
 .chat-message.assistant .chat-bubble>.chat-answer{font-size:17px;font-weight:700;line-height:1.75}@media(max-width:650px){.chat-message.assistant .chat-bubble>.chat-answer{font-size:16px}}
+
+.chat-bubble .chat-sources{font-size:12px}.chat-bubble .chat-source>small{font-size:11px;line-height:1.5;display:block}.chat-bubble .chat-visual{margin-top:0;margin-bottom:14px}
