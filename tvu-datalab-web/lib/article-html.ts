@@ -11,7 +11,8 @@ export function sanitizeArticleHTML(source:string,doc:Document):string{
   for(const attr of ['alt','title'])if(el.hasAttribute(attr))clean.setAttribute(attr,el.getAttribute(attr)!.slice(0,1000));
   if(tag==='img'){const src=el.getAttribute('src')||'';if(!articleURL(src)||src.startsWith('#'))return;clean.setAttribute('src',src);clean.setAttribute('loading','lazy')}
   if(tag==='a'){const href=el.getAttribute('href')||'';if(articleURL(href))clean.setAttribute('href',href);clean.setAttribute('rel','noopener noreferrer')}
-  const align=(el as HTMLElement).style?.textAlign;if(['left','center','right','justify'].includes(align))clean.style.textAlign=align;
+  const style=(el as HTMLElement).style;const fonts=['sans-serif','serif','Malgun Gothic','Arial'];const family=style?.fontFamily?.replace(/["']/g,'');if(fonts.includes(family))clean.style.fontFamily=family;const size=style?.fontSize;if(/^(?:[8-9]|[1-6][0-9]|7[0-2])pt$/.test(size||''))clean.style.fontSize=size;if(tag==='img'){const width=style?.width;if(/^(?:[1-9][0-9]|100)%$/.test(width||'')){clean.style.width=width;clean.style.height='auto'}}
+  const align=style?.textAlign;if(['left','center','right','justify'].includes(align))clean.style.textAlign=align;
   for(const child of Array.from(node.childNodes))copy(child,clean);
   parent.appendChild(clean);
  };
