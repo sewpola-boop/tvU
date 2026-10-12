@@ -1,3 +1,4 @@
+import {withGeneralDistrictSlots} from './general-districts';
 import {subscriptionDefaults} from './subscription-defaults';
 import { z } from 'zod';
 import {defaultMapColors} from './map-style';
@@ -48,4 +49,4 @@ export function normalizeConfig(input:unknown):Config{
 function seedIncheon(config:Config):Config{if(config.incheonRevision>=1)return config;const leaders=[...config.leaders];for(const slot of incheonSlots){if(!leaders.some(l=>l.regionId===slot.regionId))leaders.push(slot as Config['leaders'][number])}return {...config,incheonRevision:1,leaders}}
 function seedParties(config:Config):Config{if(config.partyRevision>=1)return config;return {...config,partyRevision:1,leaders:config.leaders.map(l=>{const seed=collectedLeaders.find(s=>s.level==='metro'&&s.name===l.name);return l.level==='metro'&&l.party==='미확인'&&seed?.party?{...l,party:seed.party,partySource:seed.partySource}:l})}}
 function integrateMetro(config:Config):Config{if(config.regionRevision>=1)return config;const leaders=config.leaders.map(l=>l.level==='metro'&&(l.regionId==='unmapped-전남광주'||l.dataKey==='전남광주'||l.role==='전남광주시장')?{...l,regionId:'JN-GJ',role:'전남광주통합특별시장',dataKey:'전남광주통합특별시',historicalStatus:l.name==='민형배'?'confirmed' as const:l.historicalStatus,...(l.name==='민형배'?{career:l.career||'제21·22대 국회의원(광주 광산구을)\n대통령비서실 자치발전비서관·사회정책비서관\n민선 5·6기 광주 광산구청장',source:'https://www.jeonnam-gwangju.go.kr/mayor/contentsView.do?pageId=mayor6',collectedAt:'2026-10-08'}:{})}:l);return {...config,regionRevision:1,leaders,datasets:config.datasets.map(s=>({...s,rows:s.rows.map(r=>r[0]==='전남광주'?['전남광주통합특별시',...r.slice(1)]:r)}))}}
-export const defaults:Config=normalizeConfig(railwayBaseline);
+export const defaults:Config=withGeneralDistrictSlots(normalizeConfig(railwayBaseline));
