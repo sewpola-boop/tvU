@@ -5,7 +5,8 @@ import assert from 'node:assert/strict';
 import {defaults,normalizeStoredConfig} from '../model.bundle.mjs';
 
 const dir=await fs.mkdtemp(os.tmpdir()+'/tvu-preserve-'),origin='http://127.0.0.1:32974';
-const config=structuredClone(defaults);
+const config=structuredClone(defaults);config.home.editorRevision=4;
+const initialPassword=process.env.TEST_INITIAL_ADMIN_PASSWORD;if(!initialPassword)throw Error('Set TEST_INITIAL_ADMIN_PASSWORD for isolated test');
 config.catalogVersion=0;config.partyRevision=0;config.regionRevision=0;config.incheonRevision=0;
 const target=config.leaders.find(l=>l.name==='민형배');
 Object.assign(target,{regionId:'unmapped-전남광주',dataKey:'전남광주',role:'전남광주시장',name:'민형배',party:'미확인',partyColor:'#123456',partySource:'https://example.test/my-party',photo:'/api/logo?key=12345678-1234-1234-1234-123456789abc.png',photoSource:'https://example.test/my-photo',career:'관리자 직접 입력 경력',policies:'직접 입력 정책',pledges:'직접 입력 공약',source:'https://example.test/my-career',collectedAt:'2026-09-15',historicalStatus:'pending',crimeFacts:'관리자가 확인한 사실',crimeStatus:'none',crimeSource:'https://example.test/facts',crimeCheckedAt:'2026-10-01'});
@@ -22,12 +23,12 @@ async function stop(){const c=child;child=null;const done=new Promise(r=>c.once(
 async function request(url,method='GET',value){const r=await fetch(origin+url,{method,headers:{Origin:origin,...(token?{Cookie:token}:{}),...(value?{'Content-Type':'application/json'}:{})},body:value?JSON.stringify(value):undefined});return {r,b:await r.json()}}
 try{
  const normalized=normalizeStoredConfig(config),next=normalized.leaders.find(l=>l.id===target.id);
- for(const [key,value] of Object.entries(target))if(!['regionId','role','dataKey'].includes(key))assert.deepEqual(next[key],value,'Preserve '+key);
- assert.equal(next.regionId,'JN-GJ');assert.deepEqual(normalized.datasets[0].rows,config.datasets[0].rows);
+ for(const [key,value] of Object.entries(target))assert.deepEqual(next[key],value,'Preserve '+key);
+ assert.equal(next.regionId,target.regionId);assert.deepEqual(normalized.datasets[0].rows,config.datasets[0].rows);
  assert.deepEqual(normalizeStoredConfig(normalized),normalized);
  for(let run=0;run<2;run++){
   await start();
-  if(!token){const login=await request('/api/auth/login','POST',{username:'admin',password:'1111'});assert.equal(login.r.status,200);token=login.r.headers.getSetCookie().find(c=>c.startsWith('__Host-tvu_sysop=')).split(';')[0]}
+  if(!token){const login=await request('/api/auth/login','POST',{username:'admin',password:initialPassword});assert.equal(login.r.status,200);token=login.r.headers.getSetCookie().find(c=>c.startsWith('__Host-tvu_sysop=')).split(';')[0]}
   assert.equal((await request('/api/me')).b.admin,true,'Admin account/session survives restart');
   for(const endpoint of ['/api/state','/api/draft']){const result=await request(endpoint);assert.equal(result.r.status,200);assert.deepEqual(result.b.config.leaders.find(l=>l.id===target.id),next);assert.equal(result.b.config.content.title,config.content.title);assert.deepEqual(result.b.config.datasets[0].rows,config.datasets[0].rows)}
   assert.equal(await fs.readFile(dir+'/published.json','utf8'),original);assert.equal(await fs.readFile(dir+'/draft.json','utf8'),original);

@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {defaults,normalizeStoredConfig,ConfigSchema} from '../model.bundle.mjs';
+import {accessibleConfig} from '../operations.bundle.mjs';
+const before=structuredClone(defaults);before.home.editorRevision=3;before.content.title='Existing operator content';before.datasets[0].rows=[['Original locality','72.5']];before.home.blocks.saved={title:'Stored box',body:'Original content',attachments:[],legacyField:'keep in archive'};before.leaders[0].party='미확인';before.leaders[0].partyColor='#123456';before.leaders[0].photo='https://example.test/portrait.png';
+const original=JSON.stringify(before),next=normalizeStoredConfig(before),preview=JSON.parse(fs.readFileSync(new URL('../lib/preview-exact.json',import.meta.url)));
+assert.deepEqual(next.leaders,before.leaders);assert.equal(next.previousProduction,original);const expected=ConfigSchema.parse({...preview,leaders:before.leaders,home:{...preview.home,editorRevision:4}});assert.deepEqual({...next,previousProduction:undefined},{...expected,previousProduction:undefined});assert.equal(accessibleConfig(next).previousProduction,undefined);assert.equal(accessibleConfig(next,'admin').previousProduction,original);next.content.title='Later administrator edit';assert.equal(normalizeStoredConfig(next).content.title,'Later administrator edit');assert.equal(normalizeStoredConfig(next).previousProduction,original);console.log('Full preview release: exact settings, production profiles, complete original archive, public redaction, later edits passed');

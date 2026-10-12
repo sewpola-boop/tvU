@@ -1,0 +1,1290 @@
+{
+  "subscription": {
+    "title": "필요한 깊이만큼, 지방정부 데이터를 읽으세요.",
+    "description": "기본 지표부터 모든 데이터 열람, 기관의 의사결정을 위한 심층 리포트까지.",
+    "note": "신청·결제 기능은 준비 중입니다.",
+    "plans": [
+      {
+        "id": "free",
+        "name": "무료",
+        "subtitle": "기본 데이터를 가볍게 살펴보세요.",
+        "monthly": 0,
+        "annual": 0,
+        "featured": false,
+        "badge": "FREE",
+        "features": [
+          "기본 공개 데이터 열람",
+          "주요 지표와 데이터 미리보기"
+        ],
+        "button": "무료로 둘러보기"
+      },
+      {
+        "id": "plus",
+        "name": "Plus",
+        "subtitle": "모든 데이터를 자유롭게 열람하세요.",
+        "monthly": 300000,
+        "annual": 3000000,
+        "featured": true,
+        "badge": "추천 플랜",
+        "features": [
+          "모든 데이터 열람",
+          "지자체별 지표와 순위 비교",
+          "정책지도와 단체장 데이터 확인"
+        ],
+        "button": "Plus 구독 안내"
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "subtitle": "심층 분석을 기관의 의사결정으로 연결하세요.",
+        "monthly": 600000,
+        "annual": 7000000,
+        "featured": false,
+        "badge": "FOR TEAMS",
+        "features": [
+          "Plus의 모든 데이터 열람 혜택",
+          "정책과 지표를 해석하는 심층 분석",
+          "기관 업무에 활용하는 분석 리포트",
+          "팀 구성원이 함께 열람하는 기관 구독"
+        ],
+        "button": "Pro 구독 안내"
+      }
+    ]
+  },
+  "chat": {
+    "welcome": "안녕하세요. tvU 데이터랩입니다.\n궁금한 지역이나 지표를 알려주세요. 저장된 공개 자료에서 수치를 찾아 비교해 드립니다.",
+    "intro": "지역을 비교하고, 저장된 수치와 그래프를 확인하세요.",
+    "placeholder": "지역·지표를 물어보세요. 이전 질문에 이어서 대화할 수 있습니다.",
+    "suggestions": [
+      "단체장 직무평가 상위 5명",
+      "서울과 부산 비교해줘",
+      "그럼 하위 3곳은?"
+    ],
+    "width": 720,
+    "height": 1100,
+    "resizable": true,
+    "blur": 10,
+    "suggestionBackground": "#000000",
+    "suggestionText": "#ffffff"
+  },
+  "mapStyle": {
+    "hiddenCallouts": {},
+    "calloutOrders": {
+      "KR": [
+        "41",
+        "11",
+        "28",
+        "44",
+        "36",
+        "45",
+        "JN-GJ",
+        "50",
+        "51",
+        "43",
+        "30",
+        "47",
+        "27",
+        "31",
+        "26",
+        "48"
+      ]
+    },
+    "partyColors": {
+      "국민의힘": "#e53935",
+      "더불어민주당": "#1976df",
+      "개혁신당": "#f58220",
+      "조국혁신당": "#153d80",
+      "무소속": "#ffffff",
+      "미확인": "#ddd5ee"
+    },
+    "partyFill": true,
+    "neighborBlur": 0.7
+  },
+  "incheonRevision": 1,
+  "partyRevision": 1,
+  "regionRevision": 1,
+  "catalogVersion": 1,
+  "ranking": {
+    "includeReference": true,
+    "rules": [
+      {
+        "id": "rm-general",
+        "title": "단체장 직무평가",
+        "enabled": true,
+        "kind": "dataset",
+        "scope": "metro",
+        "datasetId": "realmeter-general",
+        "keyColumn": 0,
+        "valueColumn": 2,
+        "metric": 0,
+        "year": 2026,
+        "direction": "high",
+        "weight": 1
+      },
+      {
+        "id": "rm-life",
+        "title": "주민생활 만족도",
+        "enabled": true,
+        "kind": "dataset",
+        "scope": "metro",
+        "datasetId": "realmeter-life",
+        "keyColumn": 0,
+        "valueColumn": 2,
+        "metric": 0,
+        "year": 2026,
+        "direction": "high",
+        "weight": 1
+      },
+      {
+        "id": "rm-relative",
+        "title": "정당 대비 상대지수",
+        "enabled": true,
+        "kind": "dataset",
+        "scope": "metro",
+        "datasetId": "realmeter-relative",
+        "keyColumn": 0,
+        "valueColumn": 2,
+        "metric": 0,
+        "year": 2026,
+        "direction": "high",
+        "weight": 1
+      }
+    ]
+  },
+  "datasets": [
+    {
+      "id": "recycling",
+      "title": "생활계폐기물 재활용률 · 상위 5곳",
+      "note": "2025 생산성지수 보고서 PDF 42쪽. 광역별 관할 기초지자체 평균이며 종합점수가 아닙니다.",
+      "visible": true,
+      "view": "bar",
+      "valueColumn": 1,
+      "limit": 5,
+      "columns": [
+        {
+          "name": "지역",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "재활용률",
+          "unit": "%",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "서울",
+          "60.97"
+        ],
+        [
+          "부산",
+          "80.72"
+        ],
+        [
+          "대구",
+          "54.77"
+        ],
+        [
+          "인천",
+          "59.79"
+        ],
+        [
+          "광주",
+          "91.04"
+        ],
+        [
+          "대전",
+          "65.88"
+        ],
+        [
+          "울산",
+          "45.98"
+        ],
+        [
+          "경기",
+          "59.41"
+        ],
+        [
+          "강원",
+          "43.91"
+        ],
+        [
+          "충북",
+          "35.1"
+        ],
+        [
+          "충남",
+          "43.07"
+        ],
+        [
+          "전북",
+          "53.26"
+        ],
+        [
+          "전남",
+          "41.31"
+        ],
+        [
+          "경북",
+          "43.32"
+        ],
+        [
+          "경남",
+          "49.77"
+        ]
+      ]
+    },
+    {
+      "id": "realmeter-general",
+      "title": "리얼미터 · 광역단체장 직무수행 평가",
+      "note": "리얼미터 2026년 7월 · 사용자 제공 본문 전사 · 원문 직접 대조 전. 수치의 순서는 통계적으로 유의한 차이를 뜻하지 않습니다.",
+      "visible": false,
+      "view": "comparison",
+      "valueColumn": 2,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "지역",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "이름",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "긍정평가",
+          "unit": "%",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "경북",
+          "이철우",
+          "52.4"
+        ],
+        [
+          "경남",
+          "박완수",
+          "52"
+        ],
+        [
+          "서울",
+          "오세훈",
+          "49.4"
+        ],
+        [
+          "부산",
+          "전재수",
+          "49"
+        ],
+        [
+          "충북",
+          "신용한",
+          "48.2"
+        ],
+        [
+          "세종",
+          "조상호",
+          "48.2"
+        ],
+        [
+          "강원",
+          "우상호",
+          "47.3"
+        ],
+        [
+          "대전",
+          "허태정",
+          "47.3"
+        ],
+        [
+          "울산",
+          "김상욱",
+          "47.3"
+        ],
+        [
+          "제주",
+          "위성곤",
+          "46.7"
+        ],
+        [
+          "전남광주통합특별시",
+          "민형배",
+          "44.4"
+        ],
+        [
+          "충남",
+          "박수현",
+          "44.1"
+        ],
+        [
+          "대구",
+          "추경호",
+          "41.2"
+        ],
+        [
+          "전북",
+          "이원택",
+          "38.4"
+        ],
+        [
+          "경기",
+          "추미애",
+          "37.2"
+        ],
+        [
+          "인천",
+          "박찬대",
+          "36.9"
+        ]
+      ]
+    },
+    {
+      "id": "realmeter-relative",
+      "title": "리얼미터 · 광역단체장 상대지수",
+      "note": "리얼미터 2026년 7월 · 사용자 제공 본문 전사 · 원문 직접 대조 전. 수치의 순서는 통계적으로 유의한 차이를 뜻하지 않습니다.",
+      "visible": true,
+      "view": "bar",
+      "valueColumn": 2,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "지역",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "이름",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "광역단체장 상대지수",
+          "unit": "지수",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "경남",
+          "박완수",
+          "125.3"
+        ],
+        [
+          "울산",
+          "김상욱",
+          "124.5"
+        ],
+        [
+          "서울",
+          "오세훈",
+          "122.9"
+        ],
+        [
+          "충북",
+          "신용한",
+          "119.6"
+        ],
+        [
+          "강원",
+          "우상호",
+          "117.7"
+        ],
+        [
+          "부산",
+          "전재수",
+          "115.8"
+        ],
+        [
+          "세종",
+          "조상호",
+          "107.1"
+        ],
+        [
+          "대전",
+          "허태정",
+          "105.1"
+        ],
+        [
+          "충남",
+          "박수현",
+          "104"
+        ],
+        [
+          "경북",
+          "이철우",
+          "99.6"
+        ],
+        [
+          "인천",
+          "박찬대",
+          "90.4"
+        ],
+        [
+          "경기",
+          "추미애",
+          "82.3"
+        ],
+        [
+          "대구",
+          "추경호",
+          "80.2"
+        ],
+        [
+          "제주",
+          "위성곤",
+          "73.5"
+        ],
+        [
+          "전남광주통합특별시",
+          "민형배",
+          "66.2"
+        ],
+        [
+          "전북",
+          "이원택",
+          "55.7"
+        ]
+      ]
+    },
+    {
+      "id": "realmeter-education",
+      "title": "리얼미터 · 교육감 직무수행 평가",
+      "note": "리얼미터 2026년 7월 · 사용자 제공 본문 전사 · 원문 직접 대조 전. 수치의 순서는 통계적으로 유의한 차이를 뜻하지 않습니다.",
+      "visible": true,
+      "view": "ranking",
+      "valueColumn": 2,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "지역",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "이름",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "교육감 직무수행 평가",
+          "unit": "%",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "전북",
+          "천호성",
+          "51.9"
+        ],
+        [
+          "충북",
+          "윤건영",
+          "51.8"
+        ],
+        [
+          "제주",
+          "고의숙",
+          "49.8"
+        ],
+        [
+          "부산",
+          "김석준",
+          "47.6"
+        ],
+        [
+          "경북",
+          "임종식",
+          "45.5"
+        ],
+        [
+          "대구",
+          "강은희",
+          "45.2"
+        ],
+        [
+          "대전",
+          "오석진",
+          "45"
+        ],
+        [
+          "전남광주통합특별시",
+          "김대중",
+          "43.6"
+        ],
+        [
+          "경남",
+          "권순기",
+          "43.1"
+        ],
+        [
+          "세종",
+          "강미애",
+          "42.9"
+        ],
+        [
+          "울산",
+          "조용식",
+          "42.1"
+        ],
+        [
+          "강원",
+          "강삼영",
+          "41.8"
+        ],
+        [
+          "충남",
+          "이병도",
+          "38.1"
+        ],
+        [
+          "경기",
+          "안민석",
+          "36.9"
+        ],
+        [
+          "인천",
+          "도성훈",
+          "31.2"
+        ],
+        [
+          "서울",
+          "정근식",
+          "29.2"
+        ]
+      ]
+    },
+    {
+      "id": "realmeter-life",
+      "title": "리얼미터 · 주민생활 만족도",
+      "note": "리얼미터 2026년 7월 · 사용자 제공 본문 전사 · 원문 직접 대조 전. 수치의 순서는 통계적으로 유의한 차이를 뜻하지 않습니다.",
+      "visible": true,
+      "view": "ranking",
+      "valueColumn": 2,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "지역",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "이름",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "주민생활 만족도",
+          "unit": "%",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "서울",
+          "",
+          "70.2"
+        ],
+        [
+          "대전",
+          "",
+          "68.5"
+        ],
+        [
+          "경남",
+          "",
+          "66"
+        ],
+        [
+          "부산",
+          "",
+          "65.4"
+        ],
+        [
+          "경기",
+          "",
+          "65"
+        ],
+        [
+          "세종",
+          "",
+          "64.8"
+        ],
+        [
+          "강원",
+          "",
+          "60.7"
+        ],
+        [
+          "전남광주통합특별시",
+          "",
+          "58.1"
+        ],
+        [
+          "울산",
+          "",
+          "57.8"
+        ],
+        [
+          "제주",
+          "",
+          "57.8"
+        ],
+        [
+          "대구",
+          "",
+          "57.7"
+        ],
+        [
+          "경북",
+          "",
+          "57.3"
+        ],
+        [
+          "충북",
+          "",
+          "56.4"
+        ],
+        [
+          "충남",
+          "",
+          "56.1"
+        ],
+        [
+          "인천",
+          "",
+          "54.3"
+        ],
+        [
+          "전북",
+          "",
+          "53.5"
+        ]
+      ]
+    },
+    {
+      "id": "weights",
+      "title": "생산성지수 지표별 배점",
+      "note": "보고서에 표기된 배점 합계는 1000.04점으로, 소수 둘째 자리 반올림 차이가 있다. 배점은 원문 표기 그대로 제공한다.",
+      "visible": false,
+      "view": "table",
+      "valueColumn": 2,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "분야",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "지표",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "배점",
+          "unit": "점",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "인구관리 역량",
+          "인구 증가율",
+          "76.83"
+        ],
+        [
+          "인구관리 역량",
+          "합계출산 증가율",
+          "46.74"
+        ],
+        [
+          "지역경제 역량",
+          "청년고용 증가율",
+          "81.86"
+        ],
+        [
+          "지역경제 역량",
+          "1인당 GRDP 증가율",
+          "98.41"
+        ],
+        [
+          "지역경제 역량",
+          "경제활동참가 증가율",
+          "108.97"
+        ],
+        [
+          "행정재정 역량",
+          "지자체 적극행정 종합평가",
+          "36.95"
+        ],
+        [
+          "행정재정 역량",
+          "지자체 청렴도",
+          "18.06"
+        ],
+        [
+          "행정재정 역량",
+          "재정자립도",
+          "43.09"
+        ],
+        [
+          "행정재정 역량",
+          "재정자주도",
+          "38.66"
+        ],
+        [
+          "돌봄·복지",
+          "사회복지시설 수",
+          "55.53"
+        ],
+        [
+          "돌봄·복지",
+          "보육시설 이용 수준",
+          "33.24"
+        ],
+        [
+          "돌봄·복지",
+          "자원봉사 활동율",
+          "26.66"
+        ],
+        [
+          "안전·건강",
+          "지역안전지수",
+          "66.13"
+        ],
+        [
+          "안전·건강",
+          "지역주민 건강",
+          "41.34"
+        ],
+        [
+          "안전·건강",
+          "지역 의료 수준",
+          "62.54"
+        ],
+        [
+          "교육·문화",
+          "문화기반시설 이용수준",
+          "83.04"
+        ],
+        [
+          "교육·문화",
+          "평생교육시설 이용 수준",
+          "34.71"
+        ],
+        [
+          "환경",
+          "지역환경 관리 수준",
+          "47.28"
+        ]
+      ]
+    },
+    {
+      "id": "types",
+      "title": "생산성지수 · 시·군·구 비교",
+      "note": "2025 생산성지수 보고서의 유형별 평균.",
+      "visible": false,
+      "view": "table",
+      "valueColumn": 1,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "지표",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "전국 평균",
+          "unit": "%",
+          "formula": ""
+        },
+        {
+          "name": "시",
+          "unit": "%",
+          "formula": ""
+        },
+        {
+          "name": "자치구",
+          "unit": "%",
+          "formula": ""
+        },
+        {
+          "name": "군",
+          "unit": "%",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "인구 증가율",
+          "-0.03",
+          "0.14",
+          "-0.22",
+          "-0.78"
+        ],
+        [
+          "합계출산 증가율",
+          "4.42",
+          "2.64",
+          "4.98",
+          "5.6"
+        ],
+        [
+          "청년고용 증가율",
+          "1.38",
+          "-0.74",
+          "5.25",
+          "-0.91"
+        ]
+      ]
+    },
+    {
+      "id": "coverage",
+      "title": "생산성지수 평가 현황",
+      "note": "2025 생산성지수 보고서 집계.",
+      "visible": false,
+      "view": "table",
+      "valueColumn": 1,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "항목",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "수치",
+          "unit": "",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "eligible_local_governments",
+          "226"
+        ],
+        [
+          "index_applicants",
+          "144"
+        ],
+        [
+          "index_awardees",
+          "16"
+        ],
+        [
+          "case_applicants",
+          "147"
+        ],
+        [
+          "submitted_cases",
+          "399"
+        ],
+        [
+          "awarded_cases",
+          "12"
+        ],
+        [
+          "domains",
+          "2"
+        ],
+        [
+          "fields",
+          "7"
+        ],
+        [
+          "indicators",
+          "18"
+        ],
+        [
+          "sub_indicators",
+          "26"
+        ]
+      ]
+    },
+    {
+      "id": "demo-population",
+      "title": "2026 인구증가 · 가상 예시",
+      "note": "디자인 시연용 가상 수치 · 실제 2026 순위 아님",
+      "visible": false,
+      "view": "table",
+      "valueColumn": 1,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "참고 인물",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "시연 수치",
+          "unit": "%",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "choi",
+          "3.8"
+        ],
+        [
+          "oh",
+          "3.1"
+        ],
+        [
+          "chumi",
+          "2.6"
+        ],
+        [
+          "jeon",
+          "2.1"
+        ],
+        [
+          "park",
+          "1.7"
+        ],
+        [
+          "choo",
+          "1.2"
+        ]
+      ]
+    },
+    {
+      "id": "demo-integrity",
+      "title": "2026 청렴도 · 가상 예시",
+      "note": "디자인 시연용 가상 수치 · 실제 2026 순위 아님",
+      "visible": false,
+      "view": "table",
+      "valueColumn": 1,
+      "limit": 0,
+      "columns": [
+        {
+          "name": "참고 인물",
+          "unit": "",
+          "formula": ""
+        },
+        {
+          "name": "시연 수치",
+          "unit": "등급",
+          "formula": ""
+        }
+      ],
+      "rows": [
+        [
+          "choi",
+          "1"
+        ],
+        [
+          "oh",
+          "1"
+        ],
+        [
+          "chumi",
+          "1"
+        ],
+        [
+          "jeon",
+          "1"
+        ],
+        [
+          "park",
+          "1"
+        ],
+        [
+          "choo",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "appearance": {
+    "brandName": "지방정부 tvU 데이터랩",
+    "tagline": "LOCAL GOVERNMENT DATA LAB",
+    "logo": "",
+    "logoText": "L",
+    "accent": "#9272c8",
+    "background": "#faf9fd",
+    "panel": "#ffffff",
+    "text": "#352d43",
+    "header": "#ffffff"
+  },
+  "home": {
+    "placement": "free",
+    "columns": {
+      "left": 20,
+      "right": 18
+    },
+    "mode": "horizontal",
+    "freeLayout": false,
+    "hidden": [
+      "custom:0fc3766e-d994-4833-af70-88269230f8d7",
+      "custom:43c8c245-7d27-47b6-8573-ec15a785941b",
+      "custom:24abe9fe-0e73-4e64-9f99-f99f2d0a582b",
+      "custom:70e8b679-65e4-4925-900e-edb1649ef22d"
+    ],
+    "blocks": {
+      "dataset:realmeter-relative": {
+        "span": 12,
+        "column": 1,
+        "title": "",
+        "body": "",
+        "access": "plus",
+        "attachments": []
+      },
+      "dataset:realmeter-education": {
+        "title": "",
+        "body": "",
+        "children": [
+          "custom:0fc3766e-d994-4833-af70-88269230f8d7"
+        ],
+        "attachments": []
+      },
+      "custom:0fc3766e-d994-4833-af70-88269230f8d7": {
+        "title": "새 내부 박스",
+        "body": "",
+        "attachments": []
+      },
+      "monthly": {
+        "x": 25,
+        "y": 1060,
+        "span": 7,
+        "height": 1175,
+        "title": "",
+        "body": "",
+        "children": [
+          "custom:43c8c245-7d27-47b6-8573-ec15a785941b",
+          "custom:70e8b679-65e4-4925-900e-edb1649ef22d"
+        ],
+        "arrangement": "stack",
+        "attachments": [
+          {
+            "datasetId": "demo-integrity",
+            "body": "",
+            "access": "pro",
+            "collapsed": false,
+            "view": "table"
+          }
+        ]
+      },
+      "custom:43c8c245-7d27-47b6-8573-ec15a785941b": {
+        "title": "새 내부 박스",
+        "body": "",
+        "attachments": []
+      },
+      "custom:70e8b679-65e4-4925-900e-edb1649ef22d": {
+        "title": "새 내부 박스",
+        "body": "",
+        "children": [
+          "custom:24abe9fe-0e73-4e64-9f99-f99f2d0a582b"
+        ],
+        "attachments": []
+      },
+      "custom:24abe9fe-0e73-4e64-9f99-f99f2d0a582b": {
+        "title": "새 내부 박스",
+        "body": "",
+        "attachments": []
+      },
+      "map": {
+        "height": 1057,
+        "title": "",
+        "body": "",
+        "attachments": []
+      },
+      "stories": {
+        "height": 1176,
+        "title": "데이터에서 시작하는 질문",
+        "body": "",
+        "newsIds": [],
+        "attachments": []
+      }
+    },
+    "settings": {
+      "ask": {
+        "collapsed": false,
+        "highlight": true
+      },
+      "dataset:recycling": {
+        "collapsed": false,
+        "highlight": true
+      },
+      "custom:0fc3766e-d994-4833-af70-88269230f8d7": {
+        "collapsed": false,
+        "highlight": false
+      },
+      "custom:43c8c245-7d27-47b6-8573-ec15a785941b": {
+        "collapsed": false,
+        "highlight": false
+      },
+      "custom:70e8b679-65e4-4925-900e-edb1649ef22d": {
+        "collapsed": false,
+        "highlight": false
+      },
+      "custom:24abe9fe-0e73-4e64-9f99-f99f2d0a582b": {
+        "collapsed": false,
+        "highlight": false
+      },
+      "monthly": {
+        "collapsed": false,
+        "highlight": false
+      },
+      "stories": {
+        "collapsed": false,
+        "highlight": false
+      }
+    },
+    "order": [],
+    "collapsed": true,
+    "animate": true
+  },
+  "content": {
+    "askTitle": "데이터에 질문하기",
+    "askAlign": "left",
+    "title": "지방정부, 데이터로 읽다",
+    "subtitle": "지도를 누르면 지역이 보이고, 지역을 누르면 정책과 사람이 보입니다.",
+    "notice": "종합순위는 등록한 지역 데이터의 상대 순위를 합산한 tvU 지수입니다.",
+    "rankingTitle": "월간 지자체 랭킹 TOP 10",
+    "footer": "지방자치연구소(주) · 월간 지방정부 · tvU"
+  },
+  "layout": {
+    "rankSide": "right",
+    "showRanking": true,
+    "showStories": true,
+    "showData": true,
+    "compact": true,
+    "accent": "lavender"
+  },
+  "records": [
+    {
+      "id": "inje-0",
+      "regionId": "51810",
+      "metric": 0,
+      "value": 8.62,
+      "year": 2026,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-1",
+      "regionId": "51810",
+      "metric": 1,
+      "value": 66.75,
+      "year": 2026,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-2",
+      "regionId": "51810",
+      "metric": 2,
+      "value": -4.71,
+      "year": 2026,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-3",
+      "regionId": "51810",
+      "metric": 3,
+      "value": 0,
+      "year": 2024,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-4",
+      "regionId": "51810",
+      "metric": 4,
+      "value": 3,
+      "year": 2025,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    },
+    {
+      "id": "inje-5",
+      "regionId": "51810",
+      "metric": 5,
+      "value": 2,
+      "year": 2025,
+      "source": "https://korean-eyes.com/local/100163065",
+      "status": "reference",
+      "note": "참고 페이지 표시값 · 원기관 대조 전"
+    }
+  ],
+  "sources": [
+    {
+      "id": "kosis",
+      "name": "KOSIS 공유서비스",
+      "url": "https://kosis.kr/openapi/",
+      "keyName": "KOSIS_API_KEY",
+      "cycle": "원자료 공표 주기",
+      "mapping": "연동 설계 대기: 지역코드, 지표, 기간, 수치 필드를 매핑합니다."
+    },
+    {
+      "id": "lofin",
+      "name": "지방재정365",
+      "url": "https://www.lofin365.go.kr/",
+      "keyName": "LOFIN_API_KEY",
+      "cycle": "연간",
+      "mapping": "데이터셋별 API 주소·회계 기준·호출 한도 확인 필요"
+    }
+  ],
+  "stories": [
+    {
+      "html": "",
+      "thumbnail": "https://tvudatalab.up.railway.app/preview-exact/071b0d6d-02fc-491f-bd03-affc0a57fb61.webp",
+      "thumbnailFit": "contain",
+      "thumbnailX": 46,
+      "thumbnailY": 55,
+      "subtitle": "",
+      "visible": true,
+      "showRanking": true,
+      "photos": [
+        {
+          "url": "https://tvudatalab.up.railway.app/preview-exact/54e73021-b137-4ded-81c5-849acc395cb3.webp",
+          "caption": "",
+          "fit": "cover",
+          "x": 50,
+          "y": 50
+        }
+      ],
+      "id": "tour",
+      "title": "관광시설, 투자 이후를 묻다",
+      "body": "조성비·운영비·방문객과 지역 소비를 함께 보는 취재 기획입니다."
+    },
+    {
+      "html": "테스트 ",
+      "subtitle": "",
+      "visible": true,
+      "showRanking": true,
+      "id": "budget",
+      "title": "못 쓴 예산의 이유는 무엇인가",
+      "body": "불용과 이월을 구분하고 주요 사업 지연 원인을 취재합니다."
+    },
+    {
+      "subtitle": "",
+      "visible": true,
+      "showRanking": true,
+      "id": "youth",
+      "title": "청년이 떠나는 곳, 머무는 곳",
+      "body": "순이동의 변화와 주거·일자리 정책을 대조합니다."
+    },
+    {
+      "subtitle": "",
+      "visible": false,
+      "showRanking": true,
+      "id": "1c4bf55d-42b0-4661-9195-7ab1067b5e9a",
+      "title": "새 기사",
+      "body": ""
+    }
+  ]
+}
