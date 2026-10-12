@@ -1,0 +1,43 @@
+{
+  "stories": [
+    {
+      "html": "",
+      "thumbnail": "https://tvudatalab.up.railway.app/preview-editorial/071b0d6d-02fc-491f-bd03-affc0a57fb61.webp",
+      "thumbnailFit": "contain",
+      "thumbnailX": 46,
+      "thumbnailY": 55,
+      "subtitle": "",
+      "visible": true,
+      "showRanking": true,
+      "photos": [
+        {
+          "url": "https://tvudatalab.up.railway.app/preview-editorial/54e73021-b137-4ded-81c5-849acc395cb3.webp",
+          "caption": "",
+          "fit": "cover",
+          "x": 50,
+          "y": 50
+        }
+      ],
+      "id": "tour",
+      "title": "관광시설, 투자 이후를 묻다",
+      "body": "조성비·운영비·방문객과 지역 소비를 함께 보는 취재 기획입니다."
+    },
+    {
+      "html": "테스트 ",
+      "subtitle": "",
+      "visible": true,
+      "showRanking": true,
+      "id": "budget",
+      "title": "못 쓴 예산의 이유는 무엇인가",
+      "body": "불용과 이월을 구분하고 주요 사업 지연 원인을 취재합니다."
+    },
+    {
+      "subtitle": "",
+      "visible": true,
+      "showRanking": true,
+      "id": "youth",
+      "title": "청년이 떠나는 곳, 머무는 곳",
+      "body": "순이동의 변화와 주거·일자리 정책을 대조합니다."
+    }
+  ]
+}
