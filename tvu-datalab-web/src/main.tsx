@@ -1,7 +1,8 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
+import ArticlePage from './article-page';
 import HomePage from './home-page';
 import LoginScreen from './login-screen';
 import Admin from './admin/editor';
 import './style.css';
-createRoot(document.getElementById('root')!).render(location.pathname==='/sysop/edit'?<HomePage forceEdit/>:location.pathname==='/sysop'||location.pathname==='/admin'?<Admin/>:location.pathname==='/login'?<LoginScreen/>:location.pathname==='/signup'?<LoginScreen signup/>:<HomePage/>);
+createRoot(document.getElementById('root')!).render(location.pathname==='/article'?<ArticlePage/>:location.pathname==='/sysop/edit'?<HomePage forceEdit/>:location.pathname==='/sysop'||location.pathname==='/admin'?<Admin/>:location.pathname==='/login'?<LoginScreen/>:location.pathname==='/signup'?<LoginScreen signup/>:<HomePage/>);

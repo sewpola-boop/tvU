@@ -124,17 +124,19 @@ function accessibleConfig(config, plan = "free") {
     }
     if (!changed) break;
   }
+  for (const id of Object.keys(effective)) if (id.startsWith("article:watch-") && effective.watch) effective[id] = effective.watch;
   const entries = Object.entries(config.home.blocks).map(([id, b]) => [id, { ...b, access: effective[id] }]), denied = entries.filter(([, b]) => !allowed(b.access)), open = entries.filter(([, b]) => allowed(b.access));
   const protectedAttachments = entries.flatMap(([, b]) => b.attachments.filter((a) => !allowed(b.access) || !allowed(a.access))), ids = new Set(protectedAttachments.map((a) => a.datasetId)), publicIds = new Set(open.flatMap(([, b]) => b.attachments.filter((a) => allowed(a.access)).map((a) => a.datasetId)));
   for (const id of publicIds) ids.delete(id);
   const news = new Set(denied.flatMap(([, b]) => b.newsIds || []));
+  if (denied.some(([id]) => id === "stories")) for (const story of config.stories) news.add(story.id);
   for (const [, b] of open) for (const id of b.newsIds || []) news.delete(id);
-  const blocks = Object.fromEntries(entries.map(([id, b]) => [id, allowed(b.access) ? { ...b, locked: false, attachments: b.attachments.map((a) => ({ ...a, locked: !allowed(a.access), body: allowed(a.access) ? a.body : "", title: config.datasets.find((s) => s.id === a.datasetId)?.title || a.title })) } : { ...b, locked: true, body: "", attachments: b.attachments.map((a) => ({ ...a, body: "", locked: true, access: b.access })), newsIds: [], photos: [], rankingTheme: void 0 }]));
+  const blocks = Object.fromEntries(entries.map(([id, b]) => [id, allowed(b.access) ? { ...b, locked: false, attachments: b.attachments.map((a) => ({ ...a, locked: !allowed(a.access), body: allowed(a.access) ? a.body : "", title: config.datasets.find((s) => s.id === a.datasetId)?.title || a.title })) } : { ...b, locked: true, body: "", html: "", thumbnail: "", attachments: b.attachments.map((a) => ({ ...a, body: "", locked: true, access: b.access })), newsIds: [], photos: [], rankingTheme: void 0 }]));
   for (const id of ids) {
     const s = config.datasets.find((s2) => s2.id === id);
     if (s?.visible) blocks["dataset:" + id] = { ...blocks["dataset:" + id], title: s.title, body: "", attachments: [], access: protectedAttachments.find((a) => a.datasetId === id)?.access || denied.find(([, b]) => b.attachments.some((a) => a.datasetId === id))?.[1].access || "plus", locked: true };
   }
-  return { ...config, datasets: config.datasets.map((s) => ids.has(s.id) ? { ...s, limit: 2, columns: s.columns.map((c) => ({ ...c, formula: "" })), rows: calculate(s).slice(0, 2).map((r) => r.map((c) => c.error ? "" : String(c.value))), note: "\uACF5\uAC1C \uBBF8\uB9AC\uBCF4\uAE30 \xB7 \uCC98\uC74C 2\uD589", metadata: void 0 } : s), stories: config.stories.filter((s) => !news.has(s.id)), ranking: { ...config.ranking, rules: config.ranking.rules.filter((r) => !ids.has(r.datasetId)) }, home: { ...config.home, blocks } };
+  return { ...config, datasets: config.datasets.map((s) => ids.has(s.id) ? { ...s, limit: 2, columns: s.columns.map((c) => ({ ...c, formula: "" })), rows: calculate(s).slice(0, 2).map((r) => r.map((c) => c.error ? "" : String(c.value))), note: "\uACF5\uAC1C \uBBF8\uB9AC\uBCF4\uAE30 \xB7 \uCC98\uC74C 2\uD589", metadata: void 0 } : s), stories: config.stories.filter((s) => s.visible && !news.has(s.id)), ranking: { ...config.ranking, rules: config.ranking.rules.filter((r) => !ids.has(r.datasetId)) }, home: { ...config.home, blocks } };
 }
 
 // lib/government-api.ts
