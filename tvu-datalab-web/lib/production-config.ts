@@ -1,3 +1,4 @@
+import previewLayout from './preview-layout.json';
 import {withGeneralDistrictSlots} from './general-districts';
 import {ConfigSchema,normalizeConfig,type Config} from './model';
 
@@ -6,8 +7,9 @@ import {ConfigSchema,normalizeConfig,type Config} from './model';
 export function normalizeStoredConfig(input:unknown):Config{
  const saved=ConfigSchema.parse(input);
  let next=normalizeConfig({...saved,catalogVersion:1,partyRevision:1});
- // Upgrade only layout geometry; never copy preview records or editorial fields.
- if(next.home.editorRevision<1){const monthly=next.home.blocks.monthly;next={...next,home:{...next.home,editorRevision:1,placement:'free',mode:'horizontal',blocks:{...next.home.blocks,...(monthly?{monthly:{...monthly,x:25,y:undefined,span:7,height:undefined,autoFit:true,arrangement:monthly.arrangement||'horizontal'}}:{})}}}}
+ // Match the verified preview layout, keeping data and editorial content local.
+ if(next.home.editorRevision<2){const blocks={...next.home.blocks};for(const [id,b] of Object.entries(blocks))blocks[id]={...b,x:undefined,y:undefined,column:undefined,row:undefined};for(const [id,geometry] of Object.entries(previewLayout.blocks)){const old=blocks[id]||{title:'',body:'',attachments:[]};blocks[id]={...old,span:undefined,height:undefined,...geometry,...(['monthly','map','stories'].includes(id)?{title:''}:{})} as Config['home']['blocks'][string]}
+ next={...next,home:{...next.home,editorRevision:2,placement:previewLayout.placement as 'free'|'grid',mode:previewLayout.mode as 'horizontal'|'vertical',columns:previewLayout.columns,freeLayout:false,order:previewLayout.order,blocks,settings:{...next.home.settings,...previewLayout.settings}},mapStyle:{...next.mapStyle,calloutOrders:previewLayout.calloutOrders,hiddenCallouts:previewLayout.hiddenCallouts}}}
  const existing=new Map(saved.leaders.map(leader=>[leader.id,leader]));
  return withGeneralDistrictSlots({...next,leaders:next.leaders.map(leader=>{
   const original=existing.get(leader.id);

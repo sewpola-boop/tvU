@@ -1,0 +1,68 @@
+{
+  "mode": "horizontal",
+  "placement": "free",
+  "columns": {
+    "left": 20,
+    "right": 18
+  },
+  "order": [],
+  "blocks": {
+    "dataset:realmeter-relative": {
+      "span": 12,
+      "column": 1
+    },
+    "dataset:realmeter-education": {},
+    "monthly": {
+      "x": 25,
+      "y": 1060,
+      "span": 7,
+      "arrangement": "stack",
+      "autoFit": true
+    },
+    "map": {
+      "height": 1057
+    },
+    "stories": {
+      "height": 1176
+    }
+  },
+  "settings": {
+    "ask": {
+      "collapsed": false,
+      "highlight": true
+    },
+    "dataset:recycling": {
+      "collapsed": false,
+      "highlight": true
+    },
+    "monthly": {
+      "collapsed": false,
+      "highlight": false
+    },
+    "stories": {
+      "collapsed": false,
+      "highlight": false
+    }
+  },
+  "calloutOrders": {
+    "KR": [
+      "41",
+      "11",
+      "28",
+      "44",
+      "36",
+      "45",
+      "JN-GJ",
+      "50",
+      "51",
+      "43",
+      "30",
+      "47",
+      "27",
+      "31",
+      "26",
+      "48"
+    ]
+  },
+  "hiddenCallouts": {}
+}
