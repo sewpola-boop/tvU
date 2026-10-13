@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import {newsSlots,extractMetadata,publicURL,fetchMetadata,seoulDay,dueAtNine} from '../news.bundle.mjs';
-import {createNewsScheduler,publicIP} from '../news-scheduler.mjs';
+import {createNewsScheduler,publicIP,naverArticleLinks} from '../news-scheduler.mjs';
 const manual={id:'manual',kind:'external',title:'수동',url:'https://example.com/manual',articleId:'',description:''};
 const slots=newsSlots({relatedNews:[manual]});assert.equal(slots[0].auto,true);assert.equal(slots[1].id,'manual');assert.equal(slots[2].kind,'internal');assert.equal(slots[2].span,2);assert.deepEqual(newsSlots({relatedNews:slots}),slots);
 for(const url of ['http://example.com','https://localhost/a','https://127.0.0.1/a','https://user:pass@example.com','https://[::1]/a','https://x.internal/a'])assert.throws(()=>publicURL(url));
@@ -11,6 +11,7 @@ for(const ip of ['127.0.0.1','10.0.0.2','172.16.0.1','192.168.0.3','169.254.169.
 assert.equal(publicIP('8.8.8.8'),true);
 const meta=extractMetadata(`<meta content='테스트 &amp; 기사' property='og:title'><meta property="og:image" content="/photo.jpg"><meta name="description" content="설명"><script type="application/ld+json">{"datePublished":"2026-10-13T08:00:00+09:00"}</script>`,'https://example.com/news');assert.equal(meta.title,'테스트 & 기사');assert.equal(meta.thumbnail,'https://example.com/photo.jpg');assert.ok(meta.publishedAt);
 await assert.rejects(fetchMetadata('https://example.com',async()=>new Response(null,{status:302,headers:{location:'https://127.0.0.1'}})));
+assert.deepEqual(naverArticleLinks('<a href="https://publisher.example/news/1" data-heatmap-target=".tit"><span>기사</span></a><a href="https://publisher.example/news/1" class="news_title">기사</a>'),['https://publisher.example/news/1']);
 const dir=await fs.mkdtemp(path.join(os.tmpdir(),'tvu-news-'));let now=new Date('2026-10-13T00:00:00Z'),searches=0,ai=0;let release;let delay=false;
 const leader={id:'one',name:'김테스트',role:'테스트시장',regionId:'TEST',relatedNews:[manual]},other={id:'two',name:'박테스트',role:'다른시장',regionId:'TWO',relatedNews:[{...manual,id:'news-slot-manual-only',auto:false}]};
 const states={'published.json':{config:{leaders:[leader,other],stories:[{id:'preserve'}],records:[{id:'keep'}]},etag:'p'},'draft.json':{config:{leaders:[leader,other],stories:[{id:'draft'}],records:[]},etag:'d'}};
