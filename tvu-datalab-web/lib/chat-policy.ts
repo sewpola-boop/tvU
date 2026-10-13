@@ -1,0 +1,3 @@
+export type ChatPolicy={instructions:string;graphMode:'matched'|'requested'|'off';maxSources:number};
+export const defaultChatPolicy:ChatPolicy={instructions:'질문한 지역·지표·기간을 먼저 확인하세요. 질문과 직접 관련된 원자료만 사용하고, 해당 자료가 없으면 없다고 안내하세요. 비슷한 다른 통계로 대체하지 마세요. 비교 가능한 경우에만 비교하고 원인이나 단체장 성과를 추측하지 마세요.',graphMode:'matched',maxSources:2};
+export function normalizeChatPolicy(value:any):ChatPolicy{return {instructions:typeof value?.instructions==='string'?value.instructions.slice(0,4000):defaultChatPolicy.instructions,graphMode:['matched','requested','off'].includes(value?.graphMode)?value.graphMode:'matched',maxSources:Math.max(1,Math.min(5,Number(value?.maxSources)||2))}}
