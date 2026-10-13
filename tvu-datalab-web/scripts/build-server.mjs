@@ -12,3 +12,5 @@ await build({stdin:{contents:"export * from './lib/access.ts'; export * from './
 await build({entryPoints:['lib/article-comments.ts'],outfile:'comments.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 
 await build({entryPoints:['lib/api-vault.ts'],outfile:'vault.bundle.mjs',bundle:true,platform:'node',format:'esm'});
+
+await build({entryPoints:['lib/related-news.ts'],outfile:'news.bundle.mjs',bundle:true,platform:'node',format:'esm'});
