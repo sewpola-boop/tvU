@@ -286,3 +286,5 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .chat-message.assistant .chat-bubble>.chat-answer{font-size:17px;font-weight:700;line-height:1.75}@media(max-width:650px){.chat-message.assistant .chat-bubble>.chat-answer{font-size:16px}}
 
 .chat-bubble .chat-sources{font-size:12px}.chat-bubble .chat-source>small{font-size:11px;line-height:1.5;display:block}.chat-bubble .chat-visual{margin-top:0;margin-bottom:14px}
+
+.chat-clarification-choices{display:grid;gap:8px;margin-top:14px}.chat-choice{text-align:left;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:10px;padding:12px;color:#0f172a;font-weight:600}.chat-choice:hover{background:#e0e7ff;border-color:#a5b4fc}
