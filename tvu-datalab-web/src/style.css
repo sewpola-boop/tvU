@@ -294,3 +294,34 @@ p,.muted,.rank-info small,.map-bottom,.ranking-foot,.form-panel label,.admin-hel
 .profile-panel:has(>.profile-identity){display:grid;grid-template-columns:minmax(180px,.7fr) minmax(0,1.8fr);gap:0 24px}.profile-panel>.breadcrumb,.profile-panel>.profile-edit-toolbar,.profile-panel>.profile-edit-section,.profile-panel>section:not(.profile-edit-section),.profile-panel>button{grid-column:1/-1}.profile-panel>.profile-identity{grid-column:1;grid-row:3;display:flex;flex-direction:column;align-items:flex-start;gap:12px}.profile-panel>.profile-section-career{grid-column:1;grid-row:4}.profile-panel>.profile-section-axes{grid-column:2;grid-row:3/span 2;border-top:0}.profile-metrics-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(180px,1fr);gap:16px;align-items:start}.profile-metrics-layout .radar-box{position:sticky;top:60px;padding:0;min-width:0}.profile-metrics-layout svg{overflow:visible}.profile-axis-list{display:grid;gap:10px}.profile-axis-card{padding:12px;border:1px solid #e9e3f1;border-radius:12px;background:var(--panel,#fff)}.profile-axis-card h4{font-size:20px;font-weight:800;line-height:1.35;margin:0 0 5px;color:var(--text,#352d43)}.profile-axis-score{font-size:16px;font-weight:600}.profile-axis-meta{display:flex;flex-wrap:wrap;gap:6px;font-size:11px;margin:6px 0}.profile-axis-card label{font-size:11px}.profile-axis-card input[type=number]{max-width:80px}.profile-axis-card textarea{min-height:60px}.profile-axis-card p{font-size:12px;line-height:1.6;margin:6px 0}.profile-axis-card a{font-size:11px}.profile-panel>.profile-section-career p{font-size:13px;line-height:1.8}@media(max-width:950px){.profile-panel:has(>.profile-identity){display:block}.profile-panel>.profile-identity{flex-direction:row;align-items:center}.profile-metrics-layout{grid-template-columns:minmax(0,1fr) minmax(180px,.8fr)}}@media(max-width:600px){.profile-metrics-layout{display:block}.profile-metrics-layout .radar-box{position:static}.profile-axis-list{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-axis-card h4{font-size:18px}.profile-axis-score{font-size:15px}}
 
 .profile-panel.profile-restored{display:block!important}.profile-summary-grid{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,1.7fr);gap:28px;align-items:start}.profile-restored .profile-identity{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin:20px 0}.profile-restored .profile-section-career{border:0;padding:0}.profile-restored .career{padding-left:18px;border-left:1px solid #e4d7ee;list-style:none;font-size:13px}.profile-restored .career li{margin-bottom:15px}.profile-restored .profile-section-axes{border:0;padding:20px 0}.profile-restored .radar-box{position:static;width:100%;padding:0}.profile-restored .leader-facts.panel{padding:20px;margin-top:18px;border:1px solid #e7deed;border-radius:14px}.profile-axis-modal{position:fixed;inset:0;z-index:1000;background:#1f163755;backdrop-filter:blur(5px);display:grid;place-items:center;padding:20px}.profile-axis-modal>.panel{width:min(460px,100%);max-height:90vh;overflow:auto;padding:24px}.profile-axis-modal label{display:block;margin:10px 0}@media(max-width:650px){.profile-summary-grid{grid-template-columns:minmax(130px,.75fr) minmax(0,1.25fr);gap:14px}.profile-restored .profile-identity{flex-direction:column}.profile-restored .career{font-size:11px}.profile-restored .portrait{max-width:100px;max-height:100px}}@media(max-width:400px){.profile-summary-grid{grid-template-columns:1fr}.profile-restored .profile-identity{flex-direction:row;flex-wrap:wrap}}
+
+/* Center the radar alongside the full profile, including expanded career. */
+.profile-restored .profile-summary-grid{align-items:center}
+.profile-restored .profile-summary-right{min-width:0;display:flex;align-items:center;justify-content:center;align-self:stretch}
+.profile-restored .profile-summary-right .profile-section-axes{width:100%;padding:20px 0}
+.profile-restored .profile-summary-right .radar-box{display:flex;align-items:center;justify-content:center}
+.profile-restored .profile-summary-right .radar-box svg{display:block;margin-inline:auto}
+
+.profile-restored .profile-summary-grid{grid-template-columns:minmax(180px,.68fr) minmax(0,1.82fr);gap:20px}
+.radar-year-caption{font-size:12px;font-weight:400;color:var(--muted);margin-left:8px}
+.radar-year-controls{width:min(380px,100%);margin:0 auto;padding:0 14px;text-align:center}
+.radar-year-tabs{display:flex;justify-content:space-between;gap:5px}
+.radar-year-tabs button{flex:1;padding:7px 4px;border-radius:9px;font-size:12px}
+.radar-year-tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700}
+.radar-year-slider{width:100%;margin:16px 0 5px;accent-color:var(--accent);cursor:ew-resize;padding:0}
+.profile-restored .radar-box polygon{transition:points .25s ease}
+@media(max-width:650px){.profile-restored .profile-summary-grid{grid-template-columns:minmax(120px,.65fr) minmax(0,1.35fr);gap:10px}.radar-year-controls{padding:0}.radar-year-tabs button{font-size:10px;padding:6px 2px}}
+@media(max-width:400px){.profile-restored .profile-summary-grid{grid-template-columns:1fr}}
+
+.profile-restored .profile-summary-grid{grid-template-columns:minmax(165px,.5fr) minmax(0,2fr);gap:16px}
+.radar-year-controls[hidden],.radar-year-caption[hidden]{display:none!important}
+.radar-year-toggle{display:block;margin:0 auto;padding:4px 8px;font-size:11px}
+@media(max-width:650px){.profile-restored .profile-summary-grid{grid-template-columns:minmax(110px,.5fr) minmax(0,1.5fr);gap:8px}}
+@media(max-width:400px){.profile-restored .profile-summary-grid{grid-template-columns:1fr}}
+
+.profile-restored .profile-summary-grid{grid-template-columns:minmax(155px,.38fr) minmax(0,2.12fr);gap:12px}
+.radar-score-shape{transform-box:view-box;transform-origin:300px 225px;animation:radarScoreReveal .8s cubic-bezier(.2,.75,.25,1) both}
+@keyframes radarScoreReveal{from{transform:scale(.05);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:650px){.profile-restored .profile-summary-grid{grid-template-columns:minmax(100px,.4fr) minmax(0,1.6fr);gap:8px}}
+@media(max-width:400px){.profile-restored .profile-summary-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.radar-score-shape{animation:none}}
