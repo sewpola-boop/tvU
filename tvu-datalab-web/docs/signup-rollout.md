@@ -1,6 +1,10 @@
+# Test-period rollout
+
+The user authorized phone-free registration for testing on 2026-10-16. SIGNUP_REQUIRE_PHONE defaults to false. Phone fields and verification controls are hidden, and the server stores no phone or phoneVerifiedAt even if supplied by a client. Address-based onboarding, existing data, and real member sessions remain enabled. To require SMS later set SIGNUP_REQUIRE_PHONE=true together with the three SOLAPI credentials below.
+
 # Verified phone signup and regional introduction
 
-Prepared for the existing Railway service; do not activate until real SMS settings are configured and one authorized handset delivery test succeeds. Current live signup remains unchanged while this branch is reviewed.
+Prepared for the existing Railway service. SMS-specific requirements below apply only when SIGNUP_REQUIRE_PHONE=true.
 
 ## Configuration
 Set these as Railway service secrets (never commit or paste into source):
@@ -12,7 +16,7 @@ Provider API: https://solapi.com/developers/api/messages
 Provider authentication: https://solapi.com/developers/api/authentication-api-key
 Address selection: https://postcode.map.kakao.com/guide
 
-No demo OTP, fallback phone verification, or fabricated scores are included. Missing provider settings prevent new registrations in this branch; existing login and accounts remain functional. Set the three variables together and deploy this branch only when the sender is approved and message delivery can be tested. Account credentials must stay in Railway secrets.
+No demo OTP, fallback phone verification, or fabricated scores are included. When SIGNUP_REQUIRE_PHONE=true, missing provider settings prevent new registrations; existing login and accounts remain functional. Set the three variables together and deploy this branch only when the sender is approved and message delivery can be tested. Account credentials must stay in Railway secrets.
 
 ## Behavior
 - Main /signup routes to agreement, phone verification, address lookup, profile registration.

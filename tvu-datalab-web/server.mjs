@@ -1,4 +1,4 @@
-import {createSignupFlow,phoneCookie,memberWelcome,smsReady,resolveRegion,consentVersion} from './signup.bundle.mjs';
+import {createSignupFlow,phoneCookie,memberWelcome,smsReady,phoneRequired,resolveRegion,consentVersion} from './signup.bundle.mjs';
 import {createNewsScheduler,safeNewsFetch,articlePreview,cacheThumbnail} from './news-scheduler.mjs';
 import {fetchMetadata} from './news.bundle.mjs';
 import {createKosisScheduler} from './kosis-scheduler.mjs';
@@ -56,7 +56,7 @@ if(!['GET','HEAD'].includes(req.method)&&req.headers.origin!==origin)return json
 let request=webRequest(req);
 if(url==='/api/chat'){let guest=req.headers.cookie?.match(/(?:^|;\s*)__Host-tvu_chat_guest=([a-f0-9]{64})(?:;|$)/)?.[1];if(!guest){guest=crypto.randomBytes(32).toString('hex');res.setHeader('Set-Cookie',`__Host-tvu_chat_guest=${guest}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=31536000`)}request=new Request(request,{headers:{cookie:req.headers.cookie||'','oai-authenticated-user-id':'guest:'+guest}})}
 
-if(url==='/api/auth/signup-settings'&&req.method==='GET')return json(res,{smsReady:smsReady(process.env),consentVersion});
+if(url==='/api/auth/signup-settings'&&req.method==='GET')return json(res,{smsReady:smsReady(process.env),requirePhone:phoneRequired(process.env),consentVersion});
 if(url==='/api/auth/region'&&req.method==='GET'){const region=resolveRegion(u.searchParams.get('code')||'');return json(res,region||{error:'지원하는 행정구역을 찾을 수 없습니다. 주소를 다시 선택하세요.'},region?200:400)}
 if(url==='/api/auth/phone/send'&&req.method==='POST'){const r=await signupFlow.send(request,JSON.parse(await body(req,2000)));return json(res,{ok:true,expiresIn:r.expiresIn,resendAfter:r.resendAfter},200,{'Set-Cookie':phoneCookie(r.token)})}
 if(url==='/api/auth/phone/verify'&&req.method==='POST')return json(res,await signupFlow.verify(request,JSON.parse(await body(req,2000))));
