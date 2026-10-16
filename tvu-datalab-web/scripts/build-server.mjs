@@ -14,3 +14,5 @@ await build({entryPoints:['lib/article-comments.ts'],outfile:'comments.bundle.mj
 await build({entryPoints:['lib/api-vault.ts'],outfile:'vault.bundle.mjs',bundle:true,platform:'node',format:'esm'});
 
 await build({entryPoints:['lib/related-news.ts'],outfile:'news.bundle.mjs',bundle:true,platform:'node',format:'esm'});
+
+await build({entryPoints:['lib/signup-flow.ts'],outfile:'signup.bundle.mjs',bundle:true,platform:'node',format:'esm'});
