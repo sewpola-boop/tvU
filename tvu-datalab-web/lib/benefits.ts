@@ -1,0 +1,34 @@
+export type BenefitProfile={age:number|null;seoul:boolean;gender?:string;household?:string;income?:string;employment?:string;housing?:string;newlywed?:string;child?:string;care?:string;birth?:string;order?:string;disability?:string;sensitiveConsent?:boolean;crisis?:string;hospital?:string;basic?:string};
+export type Benefit={id:string;title:string;amount:number|null;period:'월'|'연'|'1회'|'일'|'대출한도'|'월 매칭';kind:string;note:string;source:string;closed?:boolean;verified?:boolean;group?:string};
+const source={parent:'https://news.seoul.go.kr/welfare/archives/114481',basic:'https://news.seoul.go.kr/welfare/archives/50031',youth:'https://mediahub.seoul.go.kr/news/article/newsArticlePrintPopup.do?articleNo=2017342',rent:'https://housing.seoul.go.kr/site/main/content/sh01_060513',housing:'https://housing.seoul.go.kr',birth:'https://umppa.seoul.go.kr',disability:'https://www.mohw.go.kr/menu.es?mid=a10710030100',bokji:'https://www.bokjiro.go.kr',seoul:'https://news.seoul.go.kr/welfare/',savings:'https://youth.seoul.go.kr'};
+export const benefitReferenceDate='2026-10-21';
+// Candidate discovery only. Unknown conditions are not treated as qualification.
+export function matchBenefits(p:BenefitProfile):Benefit[]{
+ const list:Benefit[]=[],age=p.age,under=(n:number)=>p.income!==undefined&&p.income!==''&&p.income!=='unknown'&&Number(p.income)<=n,young=(max:number)=>age!==null&&age>=19&&age<=max;
+ const add=(b:Benefit)=>list.push(b);
+ if(p.child==='0'||p.child==='1')add({id:'parent',title:'부모급여',amount:p.child==='0'?1000000:500000,period:'월',kind:'현금·보육료 조정',verified:true,source:source.parent,note:'선택한 자녀 1명 기준. 어린이집 이용 시 보육료와 현금액이 조정됩니다. 자녀 연령에 따라 금액이 달라집니다.'});
+ if(p.child==='preschool'&&p.care==='home')add({id:'care',title:'가정양육수당',amount:100000,period:'월',kind:'현금',verified:true,source:source.parent,note:'24개월 이상 86개월 미만 미취학 자녀 1명 기준. 어린이집·유치원·종일제 아이돌봄 미이용 등 추가 조건 확인.'});
+ if(['0','1','preschool','under9'].includes(p.child||''))add({id:'child',title:'아동수당',amount:100000,period:'월',kind:'현금',source:source.bokji,note:'제공자료의 2026년 만 9세 미만 기준. 적용 생년월일·시행 시점은 복지로에서 확인하세요. 자녀 1명 기준.'});
+ if(['elementary','middle','high'].includes(p.child||'')&&under(50))add({id:'education',title:'교육급여 · 교육활동지원비',amount:({elementary:502000,middle:699000,high:860000} as any)[p.child!],period:'연',kind:'교육 바우처',source:source.basic,note:'기준 중위소득 50% 이하 등 심사. 선택한 학교급 자녀 1명 기준이며 학교급별로 연 1회 지원합니다.'});
+ if(under(32))add({id:'living',title:'생계급여',amount:null,period:'월',kind:'소득인정액별 산정',source:source.basic,note:'가구별 선정기준에서 소득인정액을 뺀 금액입니다. 다른 급여와 소득·재산을 함께 심사하므로 자동 합산하지 않습니다.'});
+ if(under(40))add({id:'medical',title:'의료급여',amount:null,period:'1회',kind:'의료비 지원',source:source.basic,note:'급여 대상 의료비의 본인부담 제외 비용. 진료 종류·자격별 금액이 달라 개별 산정됩니다.'});
+ if(under(48)&&['rent','deposit'].includes(p.housing||''))add({id:'housing',title:'주거급여',amount:p.seoul&&p.household==='4'?571000:null,period:'월',kind:'임차료 기준액',source:source.basic,note:'서울 4인 가구 기준임대료 예시입니다. 실제 임차료·가구원 수·소득인정액으로 산정하며 표시 금액이 실제 지급액은 아닙니다.'});
+ if(p.seoul&&under(100)&&p.crisis==='yes')add({id:'emergency',title:'서울형 긴급복지',amount:null,period:'1회',kind:'위기가구 지원',source:source.seoul,note:'실직·폐업·질병 등 위기사유와 소득·재산·금융재산 심사. 생계·의료·주거 항목별 산정.'});
+ if(p.seoul&&under(100)&&p.employment==='working'&&p.hospital==='yes')add({id:'hospital',title:'서울형 입원생활비',amount:96960,period:'일',kind:'생활비',source:source.seoul,note:'건강보험 지역가입 근로·사업소득자, 재산 4억 원 이하 등 추가 조건. 인정 일수는 별도 심사합니다.'});
+ if(p.seoul&&young(34)&&p.employment==='seeking'&&under(150)&&p.basic!=='yes')add({id:'youth',title:'서울 청년수당',amount:500000,period:'월',kind:'구직활동비',verified:true,closed:true,source:source.youth,note:'최대 6개월·총 300만 원. 2026년 3월 정기모집 마감. 졸업 여부·건강보험료·유사사업 중복·생애 1회 요건 등 확인. 제대군인 연령 예외 별도.'});
+ if(p.seoul&&young(39)&&p.housing==='rent'&&under(150)&&Number(p.income)>48)add({id:'youth-rent',title:p.newlywed==='yes'?'청년 신혼부부 월세지원':'서울 청년월세지원',amount:200000,period:'월',kind:'월세 환급',verified:true,closed:true,source:source.rent,note:'최대 12개월·총 240만 원, 실제 월세 한도. 2026년 5월 정기모집 마감. 무주택·보증금·월세·가구 유형·과거 수혜 등 추가 심사.'});
+ if(p.seoul&&young(34)&&p.employment==='working')add({id:'saving',title:'희망두배 청년통장',amount:150000,period:'월 매칭',kind:'본인 저축 필요',closed:true,source:source.savings,note:'본인 월 15만 원 저축에 지원금 월 15만 원. 3년 지원금 540만 원(본인 저축 제외). 제공자료상 2026년 6월 정기모집 마감. 근로기간·본인·가족 소득재산 심사.'});
+ if(p.seoul&&p.newlywed==='yes'&&['rent','deposit'].includes(p.housing||''))add({id:'newlywed',title:'신혼부부 임차보증금 이자지원',amount:300000000,period:'대출한도',kind:'지원금 아님 · 상환할 대출',source:source.housing,note:'최대 3억 원은 대출 한도이며 실제 혜택은 이자 일부입니다. 혼인 7년 이내·결혼예정 6개월 이내, 부부 연소득 1억 3천만 원 이하·무주택 등 확인. 합계 제외.'});
+ if(p.seoul&&['pregnant','postpartum'].includes(p.birth||''))add({id:'transport',title:'서울 임산부 교통비',amount:p.order==='3'?1000000:p.order==='2'?800000:700000,period:'1회',kind:'교통 바우처',source:source.birth,note:'제공자료의 출생순위별 금액. 임신주수·출산 후 신청기한·출생순위별 적용 공고를 확인하세요. 가구 내 임산부 1명 기준.'});
+ if(p.seoul&&p.birth==='postpartum')add({id:'postpartum',title:'서울형 산후조리경비',amount:p.order==='3'?1500000:p.order==='2'?1200000:1000000,period:'1회',kind:'용도 제한 바우처',source:source.birth,note:'제공자료의 출생순위별 금액. 출산일·신청기한·사용처·적용 시점은 최신 공고 확인. 현금 지급이 아닙니다.'});
+ if(age!==null&&age>=65)add({id:'pension',title:'기초연금',amount:349700,period:'월',kind:'현금',source:source.bokji,note:'소득인정액 단독 월 247만 원·부부 395만 2천 원 이하 등 제공자료 기준. 재산·직역연금·부부 감액 등을 반영하여 실제 지급액을 심사합니다.'});
+ const disabled=p.sensitiveConsent&&['severe','other'].includes(p.disability||'');
+ if(disabled&&p.disability==='severe'&&age!==null&&age>=18&&age<65)add({id:'disability-pension',title:'장애인연금 · 기초급여',amount:349700,period:'월',kind:'현금',verified:true,source:source.disability,note:'장애인연금법상 중증 여부와 본인·배우자 소득인정액을 심사합니다. 부부·소득역전 감액 가능. 부가급여는 자격별 별도 산정하여 합계에 넣지 않습니다.'});
+ if(disabled&&p.disability==='other'&&age!==null&&age>=18&&p.basic==='yes')add({id:'disability-allowance',title:'장애수당',amount:60000,period:'월',kind:'현금',verified:true,source:source.disability,note:'장애인연금법상 중증이 아닌 기초수급자·차상위. 재가 월 6만 원, 시설 월 3만 원. 본 화면은 재가 기준 예시입니다.'});
+ if(p.seoul&&disabled&&age!==null&&age>=6)add({id:'bus',title:'서울 장애인 버스요금 지원',amount:50000,period:'월',kind:'실제 이용액 환급',source:source.seoul,note:'본인 월 최대 5만 원. 심한 장애는 동반 보호자를 포함해 최대 10만 원까지 가능하나 본 화면에는 본인 한도만 표시합니다.'});
+ if(p.seoul&&((age!==null&&age>=65)||disabled))add({id:'learning',title:disabled?'장애인 평생교육이용권':'노인 평생교육이용권',amount:350000,period:'연',kind:'교육비 바우처',source:source.seoul,note:'모집·선정형. 유형 간 중복 지원은 합산하지 않습니다. 접수 일정과 취약계층 우선 선정 등 공고 확인.'});
+ return list;
+}
+// Only source-checked non-closed monthly figures are grouped; no loan, daily,
+// annual or unverified figures are converted into an invented total entitlement.
+export function benefitTotals(items:Benefit[]){const monthly=items.filter(x=>x.verified&&!x.closed&&x.period==='월'&&x.amount!==null);return {monthly:monthly.reduce((n,x)=>n+(x.amount||0),0),included:monthly.map(x=>x.id),excluded:items.length-monthly.length}}
