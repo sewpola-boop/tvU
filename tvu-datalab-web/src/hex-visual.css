@@ -1,0 +1,6 @@
+/* Visual properties only. Existing animation, timing, transforms and score calculations are untouched. */
+.radar-box svg polygon[fill="none"],.reg-radar polygon[fill="none"]{stroke:#e8e2f2}
+.radar-box svg polygon.radar-score-counting{fill:#9e85ef;fill-opacity:.19;stroke:#9177e9;stroke-width:2}
+.reg-radar .reg-radar-fill{fill:#9e85ef30;stroke:#9177e9;stroke-width:2}
+.radar-box svg text,.reg-radar text{fill:#998da9}
+.radar-box svg text[font-weight="700"]{fill:#8065b5}

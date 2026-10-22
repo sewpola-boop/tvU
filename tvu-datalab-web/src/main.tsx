@@ -6,4 +6,5 @@ import HomePage from './home-page';
 import LoginScreen from './login-screen';
 import Admin from './admin/editor';
 import './style.css';
+import './hex-visual.css';
 createRoot(document.getElementById('root')!).render(location.pathname==='/welcome'?<Welcome/>:location.pathname==='/article'?<ArticlePage/>:location.pathname==='/sysop/edit'?<HomePage forceEdit/>:location.pathname==='/sysop'||location.pathname==='/admin'?<Admin/>:location.pathname==='/login'?<LoginScreen/>:location.pathname==='/signup'?<Registration/>:<HomePage/>);
